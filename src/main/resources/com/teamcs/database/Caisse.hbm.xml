@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8 juin 2015 21:32:58 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="escrim" name="com.teamcs.database.bean.Caisse" optimistic-lock="version" table="caisse">
+    <id name="idCaisse" type="java.lang.Integer">
+      <column name="IdCaisse"/>
+      <generator class="identity"/>
+    </id>
+    <many-to-one class="com.teamcs.database.bean.Designation" fetch="select" name="designation">
+      <column name="IdDesignation" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.teamcs.database.bean.Geolocalisation" fetch="select" name="geolocalisation">
+      <column name="IdGeolocalisation" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.teamcs.database.bean.Observation" fetch="select" name="observation">
+      <column name="IdObservation" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.teamcs.database.bean.Secteur" fetch="select" name="secteur">
+      <column name="IdSecteur" not-null="true"/>
+    </many-to-one>
+    <many-to-one class="com.teamcs.database.bean.Typecaisse" fetch="select" name="typecaisse">
+      <column name="IdTypeCaisse" not-null="true"/>
+    </many-to-one>
+    <property name="affectataire" type="string">
+      <column length="14" name="Affectataire" not-null="true"/>
+    </property>
+    <property name="module" type="string">
+      <column length="20" name="Module" not-null="true"/>
+    </property>
+    <property name="nominal" type="string">
+      <column length="20" name="Nominal" not-null="true">
+        <comment>optionnel/pays froids etc</comment>
+      </column>
+    </property>
+    <property name="precisionsColis" type="string">
+      <column length="100" name="PrecisionsColis" not-null="true"/>
+    </property>
+    <property name="valeur" type="int">
+      <column name="Valeur" not-null="true"/>
+    </property>
+    <property name="iata" type="int">
+      <column name="Iata" not-null="true"/>
+    </property>
+    <property name="projection" type="int">
+      <column name="Projection" not-null="true"/>
+    </property>
+    <set fetch="select" inverse="true" lazy="true" name="configurations" table="configurationcolis">
+      <key>
+        <column name="IdColis" not-null="true"/>
+      </key>
+      <many-to-many entity-name="com.teamcs.database.Configuration">
+        <column name="IdConfiguration" not-null="true"/>
+      </many-to-many>
+    </set>
+    <set fetch="select" inverse="true" lazy="true" name="estcontenudanses" table="estcontenudans">
+      <key>
+        <column name="IdCaisse" not-null="true"/>
+      </key>
+      <one-to-many class="com.teamcs.database.bean.Estcontenudans"/>
+    </set>
+  </class>
+</hibernate-mapping>

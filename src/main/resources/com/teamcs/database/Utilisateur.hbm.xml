@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 8 juin 2015 21:32:58 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+  <class catalog="escrim" name="com.teamcs.database.bean.Utilisateur" optimistic-lock="version" table="utilisateur">
+    <id name="login" type="string">
+      <column length="30" name="Login"/>
+      <generator class="assigned"/>
+    </id>
+    <many-to-one class="com.teamcs.database.bean.Statut" fetch="select" name="statut">
+      <column name="IdStatut" not-null="true"/>
+    </many-to-one>
+    <property name="nom" type="string">
+      <column length="50" name="Nom" not-null="true"/>
+    </property>
+    <property name="prenom" type="string">
+      <column length="50" name="Prenom" not-null="true"/>
+    </property>
+    <property name="mail" type="string">
+      <column length="50" name="Mail" not-null="true"/>
+    </property>
+    <property name="motDePasse" type="string">
+      <column length="30" name="MotDePasse" not-null="true"/>
+    </property>
+  </class>
+</hibernate-mapping>
