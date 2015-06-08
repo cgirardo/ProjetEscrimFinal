@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.teamcs.database.DAO;
+package com.teamcs.service;
 
 import com.teamcs.database.bean.Utilisateur;
 
@@ -11,9 +11,9 @@ import com.teamcs.database.bean.Utilisateur;
  *
  * @author chris_000
  */
-public interface UtilisateurDAO {
+public interface UtilisateurService {
     
     void saveUtilisateur(Utilisateur utilisateur);
     
-    void updateUtilisateur(Utilisateur utilisateur);    
+    void updateUtilisateur(Utilisateur utilisateur);
 }

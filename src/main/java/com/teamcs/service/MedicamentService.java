@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.teamcs.database.DAO;
+package com.teamcs.service;
 
 import com.teamcs.database.bean.Medicament;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author chris_000
  */
-public interface MedicamentDAO {
+public interface MedicamentService {
     
     void saveMedicament(Medicament medicament);
     

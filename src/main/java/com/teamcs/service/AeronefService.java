@@ -3,17 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.teamcs.database.DAO;
+package com.teamcs.service;
 
 import com.teamcs.database.bean.Aeronef;
-import java.sql.Connection;
 import java.util.List;
 
 /**
  *
  * @author chris_000
  */
-public interface AeronefDAO {
+public interface AeronefService {
     
     void saveAeronef(Aeronef aeronef);
     
