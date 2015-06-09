@@ -1,4 +1,4 @@
-package com.teamcs;
+package com.teamcs.controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
