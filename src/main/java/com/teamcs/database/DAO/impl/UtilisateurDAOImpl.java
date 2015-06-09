@@ -8,6 +8,7 @@ package com.teamcs.database.DAO.impl;
 import com.teamcs.database.DAO.AbstractDAO;
 import com.teamcs.database.DAO.UtilisateurDAO;
 import com.teamcs.database.bean.Utilisateur;
+import org.hibernate.Query;
 
 /**
  *
@@ -23,6 +24,13 @@ public class UtilisateurDAOImpl extends AbstractDAO implements UtilisateurDAO {
     @Override
     public void updateUtilisateur(Utilisateur utilisateur) {
         getSession().update(utilisateur);
+    }
+
+    @Override
+    public Utilisateur findByLogin(String login) {
+        Query query = getSession().createSQLQuery("from Utilisateur where Login = :login");
+        query.setString("login", login);
+        return (Utilisateur) query.uniqueResult();
     }
     
 }

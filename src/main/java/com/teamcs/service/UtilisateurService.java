@@ -6,6 +6,7 @@
 package com.teamcs.service;
 
 import com.teamcs.database.bean.Utilisateur;
+import com.teamcs.exceptions.UtilisateurException;
 
 /**
  *
@@ -14,6 +15,8 @@ import com.teamcs.database.bean.Utilisateur;
 public interface UtilisateurService {
     
     void saveUtilisateur(Utilisateur utilisateur);
+    
+    boolean connectUtilisateur(String login, String password) throws UtilisateurException;
     
     void updateUtilisateur(Utilisateur utilisateur);
 }

@@ -6,7 +6,6 @@
 package com.teamcs.database.DAO;
 
 import com.teamcs.database.bean.Aeronef;
-import java.sql.Connection;
 import java.util.List;
 
 /**

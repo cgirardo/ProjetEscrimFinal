@@ -15,5 +15,7 @@ public interface UtilisateurDAO {
     
     void saveUtilisateur(Utilisateur utilisateur);
     
+    Utilisateur findByLogin(String login);
+    
     void updateUtilisateur(Utilisateur utilisateur);    
 }

@@ -7,6 +7,7 @@ package com.teamcs.service.impl;
 
 import com.teamcs.database.DAO.UtilisateurDAO;
 import com.teamcs.database.bean.Utilisateur;
+import com.teamcs.exceptions.UtilisateurException;
 import com.teamcs.service.UtilisateurService;
 
 /**
@@ -26,4 +27,18 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     public void updateUtilisateur(Utilisateur utilisateur) {
         dao.updateUtilisateur(utilisateur);
     }                
+
+    @Override
+    public boolean connectUtilisateur(String login, String password) throws UtilisateurException {
+        Utilisateur user = dao.findByLogin(login);
+        if(user != null) {
+            if(user.getMotDePasse().equals(password)) {
+                return true;
+            } else {
+                throw new UtilisateurException("Mot de passe erroné");
+            }
+        } else {
+            throw new UtilisateurException("Utilisateur inconnu");
+        }
+    }
 }
