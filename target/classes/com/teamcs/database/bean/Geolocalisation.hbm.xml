@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 juin 2015 18:30:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.teamcs.database.bean.Geolocalisation" table="geolocalisation" catalog="escrim" optimistic-lock="version">
+        <id name="idGeolocalisation" type="java.lang.Integer">
+            <column name="IdGeolocalisation" />
+            <generator class="identity" />
+        </id>
+        <property name="latitude" type="double">
+            <column name="Latitude" precision="22" scale="0" not-null="true" />
+        </property>
+        <property name="longitude" type="double">
+            <column name="Longitude" precision="22" scale="0" not-null="true" />
+        </property>
+        <set name="caisses" table="caisse" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdGeolocalisation" not-null="true" />
+            </key>
+            <one-to-many class="com.teamcs.database.bean.Caisse" />
+        </set>
+    </class>
+</hibernate-mapping>

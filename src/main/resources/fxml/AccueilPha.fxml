@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.FXMLAccueilPhaController">
+    <stylesheets>
+        <URL value="@/styles/Accueil.css" />
+    </stylesheets>
+   <children>
+      <MenuBar layoutX="-1.0" layoutY="2.0" prefHeight="27.0" prefWidth="600.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Profil">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Editer" />
+                  <MenuItem mnemonicParsing="false" text="Se déconnecter" />
+              <MenuItem mnemonicParsing="false" text="Quitter" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Médicaments">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Rechercher" />
+                  <MenuItem mnemonicParsing="false" text="Vérifier stock" />
+                  <MenuItem mnemonicParsing="false" text="Ajouter" />
+              <MenuItem mnemonicParsing="false" text="Modifier" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Missions">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Consulter" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="181.0" layoutY="139.0" prefHeight="60.0" prefWidth="147.0" text="PHARMACIEN" />
+   </children>
+</AnchorPane>

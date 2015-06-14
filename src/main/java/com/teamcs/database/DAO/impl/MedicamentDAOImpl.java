@@ -21,32 +21,32 @@ public class MedicamentDAOImpl extends AbstractDAO implements MedicamentDAO {
 
     @Override
     public void saveMedicament(Medicament medicament) {
-        persist(medicament);
+        getCurrentSession().persist(medicament);
     }
 
     @Override
     public List<Medicament> findAllMedicament() {
-        Criteria criteria = getSession().createCriteria(Medicament.class);
+        Criteria criteria = getCurrentSession().createCriteria(Medicament.class);
         return (List<Medicament>) criteria.list();
     }
 
     @Override
     public void deleteMedicamentById(int id) {
-        Query query = getSession().createSQLQuery("delete from Medicament where IdMedicament = :id");
+        Query query = getCurrentSession().createSQLQuery("delete from Medicament where IdMedicament = :id");
         query.setInteger("id", id);
         query.executeUpdate();
     }
 
     @Override
     public Medicament findByName(String name) {
-        Criteria criteria = getSession().createCriteria(Medicament.class);
+        Criteria criteria = getCurrentSession().createCriteria(Medicament.class);
         criteria.add(Restrictions.eq("LibelleMedicament", name));
         return (Medicament) criteria.uniqueResult();
     }
 
     @Override
     public void updateMedicament(Medicament medicament) {
-        getSession().update(medicament);
+        getCurrentSession().update(medicament);
     }
     
 }

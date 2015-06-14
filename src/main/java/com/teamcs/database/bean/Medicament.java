@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -9,14 +9,15 @@ import java.util.Date;
  */
 public class Medicament  implements java.io.Serializable {
 
-    private Integer idMedicament;
-    private Classetherapeutique classetherapeutique;
-    private int libelleMedicament;
-    private Date dlu;
-    private String dci;
-    private String formeDosage;
-    private int lot;
-    private int dotationU7;
+
+     private Integer idMedicament;
+     private Classetherapeutique classetherapeutique;
+     private int libelleMedicament;
+     private Date dlu;
+     private String dci;
+     private String formeDosage;
+     private int lot;
+     private int dotationU7;
 
     public Medicament() {
     }
@@ -87,6 +88,10 @@ public class Medicament  implements java.io.Serializable {
     public void setDotationU7(int dotationU7) {
         this.dotationU7 = dotationU7;
     }
+
+
+
+
 }
 
 

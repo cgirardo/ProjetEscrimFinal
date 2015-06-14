@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,25 +10,27 @@ import java.util.Set;
  */
 public class Caisse  implements java.io.Serializable {
 
-    private Integer idCaisse;
-    private Designation designation;
-    private Geolocalisation geolocalisation;
-    private Observation observation;
-    private Secteur secteur;
-    private Typecaisse typecaisse;
-    private String affectataire;
-    private String module;
-    private String nominal;
-    private String precisionsColis;
-    private int valeur;
-    private int iata;
-    private int projection;
-    private Set configurations = new HashSet(0);
-    private Set estcontenudanses = new HashSet(0);
+
+     private Integer idCaisse;
+     private Designation designation;
+     private Geolocalisation geolocalisation;
+     private Observation observation;
+     private Secteur secteur;
+     private Typecaisse typecaisse;
+     private String affectataire;
+     private String module;
+     private String nominal;
+     private String precisionsColis;
+     private int valeur;
+     private int iata;
+     private int projection;
+     private Set configurations = new HashSet(0);
+     private Set estcontenudanses = new HashSet(0);
 
     public Caisse() {
     }
 
+	
     public Caisse(Designation designation, Geolocalisation geolocalisation, Observation observation, Secteur secteur, Typecaisse typecaisse, String affectataire, String module, String nominal, String precisionsColis, int valeur, int iata, int projection) {
         this.designation = designation;
         this.geolocalisation = geolocalisation;
@@ -43,7 +45,6 @@ public class Caisse  implements java.io.Serializable {
         this.iata = iata;
         this.projection = projection;
     }
-    
     public Caisse(Designation designation, Geolocalisation geolocalisation, Observation observation, Secteur secteur, Typecaisse typecaisse, String affectataire, String module, String nominal, String precisionsColis, int valeur, int iata, int projection, Set configurations, Set estcontenudanses) {
        this.designation = designation;
        this.geolocalisation = geolocalisation;
@@ -166,6 +167,10 @@ public class Caisse  implements java.io.Serializable {
     public void setEstcontenudanses(Set estcontenudanses) {
         this.estcontenudanses = estcontenudanses;
     }
+
+
+
+
 }
 
 

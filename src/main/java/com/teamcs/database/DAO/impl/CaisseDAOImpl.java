@@ -21,31 +21,31 @@ public class CaisseDAOImpl extends AbstractDAO implements CaisseDAO {
 
     @Override
     public void saveCaisse(Caisse caisse) {
-        persist(caisse);
+        getCurrentSession().persist(caisse);
     }
 
     @Override
     public List<Caisse> findAllCaisse() {
-        Criteria criteria = getSession().createCriteria(Caisse.class);
+        Criteria criteria = getCurrentSession().createCriteria(Caisse.class);
         return (List<Caisse>) criteria.list();
     }
 
     @Override
     public void deleteCaisseById(int id) {
-        Query query = getSession().createSQLQuery("delete from Caisse where IdCaisse = :id");
+        Query query = getCurrentSession().createSQLQuery("delete from Caisse where IdCaisse = :id");
         query.setInteger("id", id);
         query.executeUpdate();
     }
 
     @Override
     public Caisse findById(int id) {
-        Criteria criteria = getSession().createCriteria(Caisse.class);
+        Criteria criteria = getCurrentSession().createCriteria(Caisse.class);
         criteria.add(Restrictions.eq("id", id));
         return (Caisse) criteria.uniqueResult();
     }
 
     @Override
     public void updateCaisse(Caisse caisse) {
-        getSession().update(caisse);
+        getCurrentSession().update(caisse);
     }
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 juin 2015 18:30:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.teamcs.database.bean.Configurationaeronef" table="configurationaeronef" catalog="escrim" optimistic-lock="version">
+        <composite-id name="id" class="com.teamcs.database.bean.ConfigurationaeronefId">
+            <key-property name="idConfiguration" type="int">
+                <column name="IdConfiguration" />
+            </key-property>
+            <key-property name="idAeronef" type="int">
+                <column name="IdAeronef" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="aeronef" class="com.teamcs.database.bean.Aeronef" update="false" insert="false" fetch="select">
+            <column name="IdAeronef" not-null="true" />
+        </many-to-one>
+        <many-to-one name="configuration" class="com.teamcs.database.bean.Configuration" update="false" insert="false" fetch="select">
+            <column name="IdConfiguration" not-null="true" />
+        </many-to-one>
+        <property name="dateDepart" type="date">
+            <column name="DateDepart" length="10" not-null="true" />
+        </property>
+        <property name="dateRetour" type="date">
+            <column name="DateRetour" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

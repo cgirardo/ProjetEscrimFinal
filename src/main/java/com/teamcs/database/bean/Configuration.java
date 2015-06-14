@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,20 +10,21 @@ import java.util.Set;
  */
 public class Configuration  implements java.io.Serializable {
 
-    private Integer idConfiguration;
-    private String libelleConfiguration;
-    private String parametreConfiguration;
-    private Set caisses = new HashSet(0);
-    private Set configurationaeronefs = new HashSet(0);
-    
+
+     private Integer idConfiguration;
+     private String libelleConfiguration;
+     private String parametreConfiguration;
+     private Set caisses = new HashSet(0);
+     private Set configurationaeronefs = new HashSet(0);
+
     public Configuration() {
     }
+
 	
     public Configuration(String libelleConfiguration, String parametreConfiguration) {
         this.libelleConfiguration = libelleConfiguration;
         this.parametreConfiguration = parametreConfiguration;
     }
-    
     public Configuration(String libelleConfiguration, String parametreConfiguration, Set caisses, Set configurationaeronefs) {
        this.libelleConfiguration = libelleConfiguration;
        this.parametreConfiguration = parametreConfiguration;
@@ -66,6 +67,10 @@ public class Configuration  implements java.io.Serializable {
     public void setConfigurationaeronefs(Set configurationaeronefs) {
         this.configurationaeronefs = configurationaeronefs;
     }
+
+
+
+
 }
 
 

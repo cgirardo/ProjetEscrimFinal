@@ -5,7 +5,7 @@
  */
 package com.teamcs.service.impl;
 
-import com.teamcs.database.DAO.UtilisateurDAO;
+import com.teamcs.database.DAO.impl.UtilisateurDAOImpl;
 import com.teamcs.database.bean.Utilisateur;
 import com.teamcs.exceptions.UtilisateurException;
 import com.teamcs.service.UtilisateurService;
@@ -16,24 +16,34 @@ import com.teamcs.service.UtilisateurService;
  */
 public class UtilisateurServiceImpl implements UtilisateurService {
 
-    private UtilisateurDAO dao;
+    private UtilisateurDAOImpl dao;
+    
+    public UtilisateurServiceImpl() {
+        dao = new UtilisateurDAOImpl();
+    }
     
     @Override
     public void saveUtilisateur(Utilisateur utilisateur) {
+        dao.openCurrentSessionwithTransaction();
         dao.saveUtilisateur(utilisateur);
+        dao.closeCurrentSessionwithTransaction();
     }
 
     @Override
     public void updateUtilisateur(Utilisateur utilisateur) {
+        dao.openCurrentSessionwithTransaction();
         dao.updateUtilisateur(utilisateur);
+        dao.closeCurrentSessionwithTransaction();
     }                
 
     @Override
-    public boolean connectUtilisateur(String login, String password) throws UtilisateurException {
+    public String connectUtilisateur(String login, String password) throws UtilisateurException {
+        dao.openCurrentSession();
         Utilisateur user = dao.findByLogin(login);
         if(user != null) {
             if(user.getMotDePasse().equals(password)) {
-                return true;
+                dao.closeCurrentSession();
+                return user.getStatut().getLibelleStatut();
             } else {
                 throw new UtilisateurException("Mot de passe erroné");
             }

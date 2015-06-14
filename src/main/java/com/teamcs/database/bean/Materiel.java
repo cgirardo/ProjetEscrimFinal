@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 
@@ -8,8 +8,9 @@ package com.teamcs.database.bean;
  */
 public class Materiel  implements java.io.Serializable {
 
-    private Integer idMateriel;
-    private String libelleMateriel;
+
+     private Integer idMateriel;
+     private String libelleMateriel;
 
     public Materiel() {
     }
@@ -32,6 +33,10 @@ public class Materiel  implements java.io.Serializable {
     public void setLibelleMateriel(String libelleMateriel) {
         this.libelleMateriel = libelleMateriel;
     }
+
+
+
+
 }
 
 

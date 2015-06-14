@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 
@@ -8,10 +8,11 @@ package com.teamcs.database.bean;
  */
 public class Estcontenudans  implements java.io.Serializable {
 
-    private EstcontenudansId id;
-    private Caisse caisse;
-    private Contenu contenu;
-    private int quantite;
+
+     private EstcontenudansId id;
+     private Caisse caisse;
+     private Contenu contenu;
+     private int quantite;
 
     public Estcontenudans() {
     }
@@ -51,6 +52,10 @@ public class Estcontenudans  implements java.io.Serializable {
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
+
+
+
+
 }
 
 

@@ -2,26 +2,30 @@
 <!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/escrim?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="com/teamcs/database/Contenu.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Typecaisse.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Materiel.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Medicament.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Geolocalisation.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Observation.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Classetherapeutique.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Statut.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Designation.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Caisse.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Secteur.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Configuration.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Estcontenudans.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Configurationaeronef.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Zonechargement.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Aeronef.hbm.xml"/>
-    <mapping resource="com/teamcs/database/Utilisateur.hbm.xml"/>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.current_session_context_class">thread</property>
+    <property name="hibernate.enable_lazy_load_no_trans">true</property>
+    <mapping resource="com/teamcs/database/bean/Utilisateur.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Materiel.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Configuration.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Typecaisse.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Zonechargement.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Aeronef.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Medicament.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Estcontenudans.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Classetherapeutique.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Observation.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Geolocalisation.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Statut.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Secteur.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Configurationaeronef.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Caisse.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Designation.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Contenu.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Zcaeronef.hbm.xml"/>
+    <mapping resource="com/teamcs/database/bean/Configurationcolis.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

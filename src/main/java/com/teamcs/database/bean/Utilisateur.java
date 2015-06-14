@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 
@@ -8,12 +8,13 @@ package com.teamcs.database.bean;
  */
 public class Utilisateur  implements java.io.Serializable {
 
-    private String login;
-    private Statut statut;
-    private String nom;
-    private String prenom;
-    private String mail;
-    private String motDePasse;
+
+     private String login;
+     private Statut statut;
+     private String nom;
+     private String prenom;
+     private String mail;
+     private String motDePasse;
 
     public Utilisateur() {
     }
@@ -69,6 +70,10 @@ public class Utilisateur  implements java.io.Serializable {
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
     }
+
+
+
+
 }
 
 

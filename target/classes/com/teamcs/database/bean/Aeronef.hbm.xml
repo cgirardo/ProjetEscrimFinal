@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 juin 2015 18:30:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.teamcs.database.bean.Aeronef" table="aeronef" catalog="escrim" optimistic-lock="version">
+        <id name="idAeronef" type="java.lang.Integer">
+            <column name="IdAeronef" />
+            <generator class="identity" />
+        </id>
+        <property name="libelleAeronef" type="string">
+            <column name="LibelleAeronef" length="50" not-null="true">
+                <comment>Modele d'avion</comment>
+            </column>
+        </property>
+        <property name="poidsMax" type="int">
+            <column name="PoidsMax" not-null="true">
+                <comment>Tonnes</comment>
+            </column>
+        </property>
+        <property name="dimensionPorte" type="string">
+            <column name="DimensionPorte" length="40" not-null="true">
+                <comment>l x H</comment>
+            </column>
+        </property>
+        <property name="dimensionCargo" type="string">
+            <column name="DimensionCargo" length="40" not-null="true">
+                <comment>L x l x H</comment>
+            </column>
+        </property>
+        <property name="volumeCargo" type="int">
+            <column name="VolumeCargo" not-null="true">
+                <comment>m^3</comment>
+            </column>
+        </property>
+        <property name="longueurPisteNecessaire" type="int">
+            <column name="LongueurPisteNecessaire" not-null="true">
+                <comment>metres</comment>
+            </column>
+        </property>
+        <property name="capacitePlein" type="int">
+            <column name="CapacitePlein" not-null="true">
+                <comment>Km</comment>
+            </column>
+        </property>
+        <property name="capaciteVide" type="int">
+            <column name="CapaciteVide" not-null="true">
+                <comment>Km</comment>
+            </column>
+        </property>
+        <property name="vitesse" type="int">
+            <column name="Vitesse" not-null="true">
+                <comment>Km/H</comment>
+            </column>
+        </property>
+        <property name="consommation" type="double">
+            <column name="Consommation" precision="22" scale="0" not-null="true">
+                <comment>Litres/H</comment>
+            </column>
+        </property>
+        <property name="disponibilite" type="boolean">
+            <column name="Disponibilite" not-null="true">
+                <comment>Aeronef dispo ou non</comment>
+            </column>
+        </property>
+        <set name="configurationaeronefs" table="configurationaeronef" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdAeronef" not-null="true" />
+            </key>
+            <one-to-many class="com.teamcs.database.bean.Configurationaeronef" />
+        </set>
+        <set name="zonechargements" table="zcaeronef" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="IdAeronef" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.teamcs.database.bean.Zonechargement">
+                <column name="IdZC" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

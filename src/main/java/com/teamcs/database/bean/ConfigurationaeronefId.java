@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 
@@ -8,8 +8,9 @@ package com.teamcs.database.bean;
  */
 public class ConfigurationaeronefId  implements java.io.Serializable {
 
-    private int idConfiguration;
-    private int idAeronef;
+
+     private int idConfiguration;
+     private int idAeronef;
 
     public ConfigurationaeronefId() {
     }
@@ -52,6 +53,8 @@ public class ConfigurationaeronefId  implements java.io.Serializable {
          result = 37 * result + this.getIdAeronef();
          return result;
    }   
+
+
 }
 
 

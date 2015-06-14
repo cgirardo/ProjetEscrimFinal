@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,19 +10,20 @@ import java.util.Set;
  */
 public class Zonechargement  implements java.io.Serializable {
 
-    private Integer idZc;
-    private String dimensionZc;
-    private int volumeZc;
-    private Set aeronefs = new HashSet(0);
+
+     private Integer idZc;
+     private String dimensionZc;
+     private int volumeZc;
+     private Set aeronefs = new HashSet(0);
 
     public Zonechargement() {
     }
 
+	
     public Zonechargement(String dimensionZc, int volumeZc) {
         this.dimensionZc = dimensionZc;
         this.volumeZc = volumeZc;
     }
-    
     public Zonechargement(String dimensionZc, int volumeZc, Set aeronefs) {
        this.dimensionZc = dimensionZc;
        this.volumeZc = volumeZc;
@@ -57,6 +58,10 @@ public class Zonechargement  implements java.io.Serializable {
     public void setAeronefs(Set aeronefs) {
         this.aeronefs = aeronefs;
     }
+
+
+
+
 }
 
 

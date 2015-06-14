@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -9,11 +9,12 @@ import java.util.Date;
  */
 public class Configurationaeronef  implements java.io.Serializable {
 
-    private ConfigurationaeronefId id;
-    private Aeronef aeronef;
-    private Configuration configuration;
-    private Date dateDepart;
-    private Date dateRetour;
+
+     private ConfigurationaeronefId id;
+     private Aeronef aeronef;
+     private Configuration configuration;
+     private Date dateDepart;
+     private Date dateRetour;
 
     public Configurationaeronef() {
     }

@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,24 +10,26 @@ import java.util.Set;
  */
 public class Aeronef  implements java.io.Serializable {
 
-    private Integer idAeronef;
-    private String libelleAeronef;
-    private int poidsMax;
-    private String dimensionPorte;
-    private String dimensionCargo;
-    private int volumeCargo;
-    private int longueurPisteNecessaire;
-    private int capacitePlein;
-    private int capaciteVide;
-    private int vitesse;
-    private double consommation;
-    private boolean disponibilite;
-    private Set configurationaeronefs = new HashSet(0);
-    private Set zonechargements = new HashSet(0);
+
+     private Integer idAeronef;
+     private String libelleAeronef;
+     private int poidsMax;
+     private String dimensionPorte;
+     private String dimensionCargo;
+     private int volumeCargo;
+     private int longueurPisteNecessaire;
+     private int capacitePlein;
+     private int capaciteVide;
+     private int vitesse;
+     private double consommation;
+     private boolean disponibilite;
+     private Set configurationaeronefs = new HashSet(0);
+     private Set zonechargements = new HashSet(0);
 
     public Aeronef() {
     }
-    
+
+	
     public Aeronef(String libelleAeronef, int poidsMax, String dimensionPorte, String dimensionCargo, int volumeCargo, int longueurPisteNecessaire, int capacitePlein, int capaciteVide, int vitesse, double consommation, boolean disponibilite) {
         this.libelleAeronef = libelleAeronef;
         this.poidsMax = poidsMax;
@@ -155,6 +157,10 @@ public class Aeronef  implements java.io.Serializable {
     public void setZonechargements(Set zonechargements) {
         this.zonechargements = zonechargements;
     }
+
+
+
+
 }
 
 

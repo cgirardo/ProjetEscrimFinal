@@ -1,5 +1,5 @@
 package com.teamcs.database.bean;
-// Generated 8 juin 2015 21:32:57 by Hibernate Tools 4.3.1
+// Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,14 +10,16 @@ import java.util.Set;
  */
 public class Geolocalisation  implements java.io.Serializable {
 
-    private Integer idGeolocalisation;
-    private double latitude;
-    private double longitude;
-    private Set caisses = new HashSet(0);
+
+     private Integer idGeolocalisation;
+     private double latitude;
+     private double longitude;
+     private Set caisses = new HashSet(0);
 
     public Geolocalisation() {
     }
 
+	
     public Geolocalisation(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
@@ -56,6 +58,10 @@ public class Geolocalisation  implements java.io.Serializable {
     public void setCaisses(Set caisses) {
         this.caisses = caisses;
     }
+
+
+
+
 }
 
 

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 juin 2015 18:30:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.teamcs.database.bean.Medicament" table="medicament" catalog="escrim" optimistic-lock="version">
+        <id name="idMedicament" type="java.lang.Integer">
+            <column name="IdMedicament" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="classetherapeutique" class="com.teamcs.database.bean.Classetherapeutique" fetch="select">
+            <column name="IdClasseTherapeutique" not-null="true" />
+        </many-to-one>
+        <property name="libelleMedicament" type="int">
+            <column name="LibelleMedicament" not-null="true" />
+        </property>
+        <property name="dlu" type="date">
+            <column name="DLU" length="10" not-null="true" />
+        </property>
+        <property name="dci" type="string">
+            <column name="DCI" length="100" not-null="true" />
+        </property>
+        <property name="formeDosage" type="string">
+            <column name="FormeDosage" length="50" not-null="true" />
+        </property>
+        <property name="lot" type="int">
+            <column name="Lot" not-null="true" />
+        </property>
+        <property name="dotationU7" type="int">
+            <column name="DotationU7" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

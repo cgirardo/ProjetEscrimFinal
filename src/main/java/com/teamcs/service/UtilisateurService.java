@@ -16,7 +16,7 @@ public interface UtilisateurService {
     
     void saveUtilisateur(Utilisateur utilisateur);
     
-    boolean connectUtilisateur(String login, String password) throws UtilisateurException;
+    String connectUtilisateur(String login, String password) throws UtilisateurException;
     
     void updateUtilisateur(Utilisateur utilisateur);
 }

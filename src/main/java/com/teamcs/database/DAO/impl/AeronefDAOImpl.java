@@ -21,32 +21,32 @@ public class AeronefDAOImpl extends AbstractDAO implements AeronefDAO {
 
     @Override
     public void saveAeronef(Aeronef aeronef) {
-        persist(aeronef);
+        getCurrentSession().persist(aeronef);
     }
 
     @Override
     public List<Aeronef> findAllAeronef() {
-        Criteria criteria = getSession().createCriteria(Aeronef.class);
+        Criteria criteria = getCurrentSession().createCriteria(Aeronef.class);
         return (List<Aeronef>) criteria.list();
     }
 
     @Override
     public void deleteAeronefByName(String name) {
-        Query query = getSession().createSQLQuery("delete from Aeronef where LibelleAeronef = :name");
+        Query query = getCurrentSession().createSQLQuery("delete from Aeronef where LibelleAeronef = :name");
         query.setString("name", name);
         query.executeUpdate();
     }
 
     @Override
     public Aeronef findByName(String name) {
-        Criteria criteria = getSession().createCriteria(Aeronef.class);
+        Criteria criteria = getCurrentSession().createCriteria(Aeronef.class);
         criteria.add(Restrictions.eq("name", name));
         return (Aeronef) criteria.uniqueResult();
     }
 
     @Override
     public void updateAeronef(Aeronef aeronef) {
-        getSession().update(aeronef);
+        getCurrentSession().update(aeronef);
     }
     
 }

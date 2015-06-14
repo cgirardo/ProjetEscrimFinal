@@ -16,21 +16,23 @@ import org.hibernate.Query;
  */
 public class UtilisateurDAOImpl extends AbstractDAO implements UtilisateurDAO {
 
+    public UtilisateurDAOImpl() {
+    }
+    
     @Override
     public void saveUtilisateur(Utilisateur utilisateur) {
-        persist(utilisateur);
+        getCurrentSession().persist(utilisateur);
     }
 
     @Override
     public void updateUtilisateur(Utilisateur utilisateur) {
-        getSession().update(utilisateur);
+        getCurrentSession().update(utilisateur);
     }
 
     @Override
     public Utilisateur findByLogin(String login) {
-        Query query = getSession().createSQLQuery("from Utilisateur where Login = :login");
+        Query query = getCurrentSession().createQuery("from Utilisateur where Login = :login");
         query.setString("login", login);
         return (Utilisateur) query.uniqueResult();
     }
-    
 }

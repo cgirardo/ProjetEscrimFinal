@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 14 juin 2015 18:30:49 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.teamcs.database.bean.Classetherapeutique" table="classetherapeutique" catalog="escrim" optimistic-lock="version">
+        <id name="idClasseTherapeutique" type="java.lang.Integer">
+            <column name="IdClasseTherapeutique" />
+            <generator class="identity" />
+        </id>
+        <property name="libelleClasseTherapeutique" type="string">
+            <column name="LibelleClasseTherapeutique" length="50" not-null="true" />
+        </property>
+        <set name="medicaments" table="medicament" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="IdClasseTherapeutique" not-null="true" />
+            </key>
+            <one-to-many class="com.teamcs.database.bean.Medicament" />
+        </set>
+    </class>
+</hibernate-mapping>
