@@ -16,22 +16,22 @@
         <menus>
           <Menu mnemonicParsing="false" text="Profil">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Editer" />
-                  <MenuItem mnemonicParsing="false" text="Se déconnecter" />
-              <MenuItem mnemonicParsing="false" text="Quitter" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemProfilEditerAction" text="Editer" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemProfilDeconnecterAction" text="Se déconnecter" />
+              <MenuItem mnemonicParsing="false" onAction="#itemProfilQuitterAction" text="Quitter" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Médicaments">
             <items>
-                  <MenuItem mnemonicParsing="false" text="Rechercher" />
-                  <MenuItem mnemonicParsing="false" text="Vérifier stock" />
-                  <MenuItem mnemonicParsing="false" text="Ajouter" />
-              <MenuItem mnemonicParsing="false" text="Modifier" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemMedicamentsRechercherAction" text="Rechercher" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemMedicamentsVerifierAction" text="Vérifier stock" />
+                  <MenuItem mnemonicParsing="false" onAction="#itemMedicamentsAjouterAction" text="Ajouter" />
+              <MenuItem mnemonicParsing="false" onAction="#itemMedicamentModifierAction" text="Modifier" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Missions">
             <items>
-              <MenuItem mnemonicParsing="false" text="Consulter" />
+              <MenuItem mnemonicParsing="false" onAction="#itemMissionsConsulterAction" text="Consulter" />
             </items>
           </Menu>
         </menus>

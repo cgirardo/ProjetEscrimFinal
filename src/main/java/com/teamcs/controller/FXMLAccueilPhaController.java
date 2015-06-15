@@ -6,8 +6,11 @@ package com.teamcs.controller;
  * and open the template in the editor.
  */
 
+import com.teamcs.controller.common.FXMLAccueilCommonController;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -15,8 +18,28 @@ import javafx.fxml.Initializable;
  *
  * @author chris_000
  */
-public class FXMLAccueilPhaController implements Initializable {
-
+public class FXMLAccueilPhaController extends FXMLAccueilCommonController implements Initializable {
+    
+    @FXML
+    private void itemMedicamentsRechercherAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemMedicamentsVerifierAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemMedicamentsAjouterAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemMedicamentModifierAction(ActionEvent event) {
+        
+    }
+    
     /**
      * Initializes the controller class.
      */
@@ -24,5 +47,4 @@ public class FXMLAccueilPhaController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    
 }

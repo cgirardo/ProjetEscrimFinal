@@ -5,8 +5,11 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.FXMLAccueilCommonController;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -17,7 +20,7 @@ import javafx.scene.control.MenuItem;
  *
  * @author chris_000
  */
-public class FXMLAccueilLogController implements Initializable {
+public class FXMLAccueilLogController extends FXMLAccueilCommonController implements Initializable {
     
     MenuBar menuBar = new MenuBar();
     
@@ -40,6 +43,47 @@ public class FXMLAccueilLogController implements Initializable {
     Menu menuMissions = new Menu("Missions");
     MenuItem itemMissions = new MenuItem("Consulter");
     MenuItem itemProgrammer = new MenuItem("Programmer");
+    
+    
+    @FXML
+    private void itemAvionsRechercherAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemAvionsAjouterAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemAvionsModifierAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemCaissesRechercherAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemCaissesVerifierAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemCaissesAjouterAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemCaissesModifierAction(ActionEvent event) {
+        
+    }
+    
+    @FXML
+    private void itemMissionsProgrammerAction(ActionEvent event) {
+        
+    }
     
     /**
      * Initializes the controller class.

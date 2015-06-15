@@ -5,8 +5,11 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.FXMLAccueilCommonController;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
 /**
@@ -14,8 +17,13 @@ import javafx.fxml.Initializable;
  *
  * @author chris_000
  */
-public class FXMLAccueilMedController implements Initializable {
-
+public class FXMLAccueilMedController extends FXMLAccueilCommonController implements Initializable {
+    
+    @FXML
+    private void itemMedicamentsRechercherAction(ActionEvent event) {
+        
+    }
+    
     /**
      * Initializes the controller class.
      */
