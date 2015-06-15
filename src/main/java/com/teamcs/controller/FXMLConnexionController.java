@@ -30,8 +30,6 @@ public class FXMLConnexionController implements Initializable {
     @FXML private PasswordField mdp;
     @FXML private Stage stage;
     @FXML private Label label;
-    @FXML private AnchorPane content;   
-    @FXML private StackPane vistaHolder;
     
     @FXML
     private void connexionButtonAction(ActionEvent event) {
@@ -39,23 +37,15 @@ public class FXMLConnexionController implements Initializable {
         String pcw = mdp.getText();
         String statut = "";
         try {
-            System.out.println("test connection");
-            statut = service.connectUtilisateur(login, pcw);
-            System.out.println("login correct");
-            
-            
+            statut = service.connectUtilisateur(login, pcw);         
             
             Scene scene = selectScene(statut);
             stage = new Stage();
-//            stage.setScene(scene);
-//            stage.show();
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             stage.hide();
             stage.setScene(scene);
             stage.show();
-            System.out.println("connecté");
         } catch (UtilisateurException e) {
-            System.out.println(e.getMessage());
             label.setText(e.getMessage());
         } catch (IOException ex) {
             Logger.getLogger(FXMLConnexionController.class.getName()).log(Level.SEVERE, null, ex);
@@ -96,11 +86,6 @@ public class FXMLConnexionController implements Initializable {
         
         identifiant.setPromptText("identifiant");
         mdp.setPromptText("mot de passe");
-    }
-    
-    @FXML
-    private void nouveauButtonAction(ActionEvent event) {
-        
     }
     
     @Override
