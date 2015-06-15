@@ -1,17 +1,13 @@
 package com.teamcs.controller;
 
-import com.teamcs.database.bean.Utilisateur;
 import com.teamcs.exceptions.UtilisateurException;
 import com.teamcs.service.UtilisateurService;
 import com.teamcs.service.impl.UtilisateurServiceImpl;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -89,6 +85,7 @@ public class FXMLConnexionController implements Initializable {
         
         Parent root = FXMLLoader.load(getClass().getResource(page));
         Scene scene = new Scene(root);
+        scene.getStylesheets().add("/styles/Accueil.css");
         return scene;
     }
     

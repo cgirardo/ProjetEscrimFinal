@@ -7,11 +7,43 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="com.teamcs.controller.FXMLAccueilLogController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.FXMLAccueilLogController">
     <stylesheets>
         <URL value="@/styles/Accueil.css" />
     </stylesheets>
-    <children>
-        <Label layoutX="140.0" layoutY="143.0" prefHeight="57.0" prefWidth="262.0" text="JE SUIS LOGISTICIEN" />
-    </children>
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="20.0" prefWidth="600.0">
+        <menus>
+            <Menu mnemonicParsing="false" text="Profil">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Editer" />
+                  <MenuItem mnemonicParsing="false" text="Déconnecter" />
+                  <MenuItem mnemonicParsing="false" text="Quitter" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Avions">
+              <items>
+                  <MenuItem mnemonicParsing="false" text="Rechercher" />
+                  <MenuItem mnemonicParsing="false" text="Ajouter" />
+                <MenuItem mnemonicParsing="false" text="Modifier" />
+              </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="Caisses">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Rechercher" />
+                  <MenuItem mnemonicParsing="false" text="Vérifier stock" />
+                  <MenuItem mnemonicParsing="false" text="Ajouter" />
+                  <MenuItem mnemonicParsing="false" text="Modifier" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Missions">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Consulter" />
+              <MenuItem mnemonicParsing="false" text="Programmer" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label layoutX="139.0" layoutY="144.0" prefHeight="71.0" prefWidth="196.0" text="LOGISTICIEN" />
+   </children>
 </AnchorPane>
