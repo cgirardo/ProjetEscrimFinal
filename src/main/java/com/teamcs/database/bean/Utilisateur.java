@@ -14,17 +14,23 @@ public class Utilisateur  implements java.io.Serializable {
      private String nom;
      private String prenom;
      private String mail;
+     private String rue;
+     private String ville;
+     private String codePostal;
      private String motDePasse;
 
     public Utilisateur() {
     }
 
-    public Utilisateur(String login, Statut statut, String nom, String prenom, String mail, String motDePasse) {
+    public Utilisateur(String login, Statut statut, String nom, String prenom, String mail, String rue, String ville, String codePostal, String motDePasse) {
        this.login = login;
        this.statut = statut;
        this.nom = nom;
        this.prenom = prenom;
        this.mail = mail;
+       this.rue = rue;
+       this.ville = ville;
+       this.codePostal = codePostal;
        this.motDePasse = motDePasse;
     }
    
@@ -63,6 +69,31 @@ public class Utilisateur  implements java.io.Serializable {
     public void setMail(String mail) {
         this.mail = mail;
     }
+
+    public String getRue() {
+        return rue;
+    }
+
+    public void setRue(String rue) {
+        this.rue = rue;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public String getCodePostal() {
+        return codePostal;
+    }
+
+    public void setCodePostal(String codePostal) {
+        this.codePostal = codePostal;
+    }
+    
     public String getMotDePasse() {
         return this.motDePasse;
     }
@@ -70,10 +101,6 @@ public class Utilisateur  implements java.io.Serializable {
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
     }
-
-
-
-
 }
 
 

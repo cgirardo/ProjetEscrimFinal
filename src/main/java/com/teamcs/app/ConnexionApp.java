@@ -1,25 +1,40 @@
 package com.teamcs.app;
 
+import com.teamcs.controller.common.MainController;
+import com.teamcs.controller.common.NavigationController;
+import java.io.IOException;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class ConnexionApp extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Connexion.fxml"));
-        
-        Scene scene = new Scene(root);
-        scene.getStylesheets().add("/styles/Login.css");
-        
-        stage.setTitle("SDIS30 - Escrim");
-        stage.setScene(scene);
+        stage.setTitle("SDIS30 - ESCRIM");
+        stage.setScene(createScene(loadMainPane()));
         stage.show();
+    }
+    
+    private Pane loadMainPane() throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        Pane mainPane = (Pane) loader.load(getClass().getResourceAsStream(NavigationController.VIEW_MAIN));
         
+        MainController mainController = loader.getController();
+        
+        NavigationController.setMainController(mainController);
+        NavigationController.loadView(NavigationController.VIEW_CONNEXION);
+        
+        return mainPane;
+    }
+    
+    private Scene createScene(Pane mainPane) {
+        Scene scene = new Scene(mainPane);
+        scene.getStylesheets().setAll(getClass().getResource(NavigationController.STYLE_CONNEXION).toExternalForm());
+        return scene;
     }
     
     /**

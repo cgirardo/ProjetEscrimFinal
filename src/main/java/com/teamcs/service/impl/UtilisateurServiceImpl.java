@@ -9,6 +9,8 @@ import com.teamcs.database.DAO.impl.UtilisateurDAOImpl;
 import com.teamcs.database.bean.Utilisateur;
 import com.teamcs.exceptions.UtilisateurException;
 import com.teamcs.service.UtilisateurService;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -50,5 +52,14 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         } else {
             throw new UtilisateurException("Utilisateur inconnu");
         }
+    }
+
+    @Override
+    public List<Utilisateur> findAll() {
+        List<Utilisateur> users = new ArrayList<Utilisateur>();
+        dao.openCurrentSessionwithTransaction();
+        users = dao.findAllUtilisateur();
+        dao.closeCurrentSessionwithTransaction();
+        return users;
     }
 }

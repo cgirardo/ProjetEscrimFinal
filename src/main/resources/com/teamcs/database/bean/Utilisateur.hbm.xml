@@ -20,6 +20,15 @@
         <property name="mail" type="string">
             <column name="Mail" length="50" not-null="true" />
         </property>
+        <property name="rue" type="string">
+            <column name="Rue" length="100" not-null="true" />
+        </property>
+        <property name="ville" type="string">
+            <column name="Ville" length="30" not-null="true" />
+        </property>
+        <property name="codePostal" type="string">
+            <column name="CodePostal" length="20" not-null="true" />
+        </property>
         <property name="motDePasse" type="string">
             <column name="MotDePasse" length="30" not-null="true" />
         </property>

@@ -6,6 +6,7 @@
 package com.teamcs.database.DAO;
 
 import com.teamcs.database.bean.Utilisateur;
+import java.util.List;
 
 /**
  *
@@ -16,6 +17,8 @@ public interface UtilisateurDAO {
     void saveUtilisateur(Utilisateur utilisateur);
     
     Utilisateur findByLogin(String login);
+    
+    List<Utilisateur> findAllUtilisateur();
     
     void updateUtilisateur(Utilisateur utilisateur);    
 }

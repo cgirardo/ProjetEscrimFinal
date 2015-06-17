@@ -1,11 +1,11 @@
 JarIndex-Version: 1.0
 
-jandex-1.1.0.Final.jar
+jboss-logging-3.1.3.GA.jar
 META-INF
 META-INF/maven
-META-INF/maven/org.jboss
-META-INF/maven/org.jboss/jandex
+META-INF/maven/org.jboss.logging
+META-INF/maven/org.jboss.logging/jboss-logging
 org
 org/jboss
-org/jboss/jandex
+org/jboss/logging
 
