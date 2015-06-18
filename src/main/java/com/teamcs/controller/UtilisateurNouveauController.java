@@ -1,0 +1,174 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.teamcs.controller;
+
+import com.teamcs.database.bean.Statut;
+import com.teamcs.database.bean.Utilisateur;
+import com.teamcs.service.StatutService;
+import com.teamcs.service.UtilisateurService;
+import com.teamcs.service.impl.StatutServiceImpl;
+import com.teamcs.service.impl.UtilisateurServiceImpl;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+/**
+ * FXML Controller class
+ *
+ * @author chris_000
+ */
+public class UtilisateurNouveauController implements Initializable {
+    
+    @FXML
+    private ComboBox<Statut> statutComboBox;
+    
+    @FXML
+    private TextField firstNameField;
+    @FXML
+    private TextField lastNameField;
+    @FXML
+    private TextField streetField;
+    @FXML
+    private TextField postalCodeField;
+    @FXML
+    private TextField cityField;
+    @FXML
+    private TextField mailField;
+    @FXML
+    private TextField mdpField;
+    @FXML
+    private TextField identifiantField;
+    
+    StatutService statutService = new StatutServiceImpl();
+    UtilisateurService service = new UtilisateurServiceImpl();
+
+    private Stage dialogStage;
+    private Utilisateur user;
+    private boolean okClicked = false;
+    
+    /**
+     * Sets the stage of this dialog.
+     * 
+     * @param dialogStage
+     */
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+    
+    /**
+     * Returns true if the user clicked OK, false otherwise.
+     * 
+     * @return
+     */
+    public boolean isOkClicked() {
+        return okClicked;
+    }
+    
+    /**
+     * Called when the user clicks ok.
+     */
+    @FXML
+    private void handleOk() {
+        if (isInputValid()) {
+            user = new Utilisateur();
+            user.setLogin(identifiantField.getText());
+            user.setMotDePasse(mdpField.getText());
+            user.setStatut(statutComboBox.getSelectionModel().getSelectedItem());
+            user.setPrenom(firstNameField.getText());
+            user.setNom(lastNameField.getText());
+            user.setRue(streetField.getText());
+            user.setCodePostal(postalCodeField.getText());
+            user.setVille(cityField.getText());
+            user.setMail(mailField.getText());
+
+            okClicked = true;
+            service.saveUtilisateur(user);
+            
+            dialogStage.close();
+        }
+    }
+    
+    /**
+     * Called when the user clicks cancel.
+     */
+    @FXML
+    private void handleCancel() {
+        dialogStage.close();
+    }
+    
+    /**
+     * Validates the user input in the text fields.
+     * 
+     * @return true if the input is valid
+     */
+    private boolean isInputValid() {
+        String errorMessage = "";
+
+        if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
+            errorMessage += "No valid first name!\n"; 
+        }
+        if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
+            errorMessage += "No valid last name!\n"; 
+        }
+        if (streetField.getText() == null || streetField.getText().length() == 0) {
+            errorMessage += "No valid street!\n"; 
+        }
+
+        if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
+            errorMessage += "No valid postal code!\n"; 
+        }
+
+        if (cityField.getText() == null || cityField.getText().length() == 0) {
+            errorMessage += "No valid city!\n"; 
+        }
+
+        if (mailField.getText() == null || mailField.getText().length() == 0) {
+            errorMessage += "No valid mail!\n";
+        }
+        
+        if (mdpField.getText() == null || mdpField.getText().length() == 0) {
+            errorMessage += "No valid mdp!\n";
+        }
+        
+        if (identifiantField.getText() == null || identifiantField.getText().length() == 0) {
+            errorMessage += "No valid identifiant!\n";
+        }
+        
+        if (statutComboBox.getItems() == null || statutComboBox.getItems().size() == 0) {
+            errorMessage += "No valid statut!\n";
+        }
+
+        if (errorMessage.length() == 0) {
+            return true;
+        } else {
+            // Show the error message.
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.initOwner(dialogStage);
+            alert.setTitle("Invalid Fields");
+            alert.setHeaderText("Please correct invalid fields");
+            alert.setContentText(errorMessage);
+            
+            alert.showAndWait();
+            
+            return false;
+        }
+    }
+    
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        for(Statut statut : statutService.findAll()) {
+            statutComboBox.getItems().add(statut);
+        }
+    }    
+}

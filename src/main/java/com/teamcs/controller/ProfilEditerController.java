@@ -8,11 +8,18 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -23,6 +30,9 @@ import javafx.stage.Stage;
 public class ProfilEditerController {
     
     Stage primaryStage;
+    private UtilisateurService service;
+    private Utilisateur utilisateur;
+    private ObservableList<Utilisateur> personData;
     
     @FXML
     private TableView<Utilisateur> personTable;
@@ -54,7 +64,9 @@ public class ProfilEditerController {
      */
     @FXML
     public void initialize() {
-        personTable.setItems(getDataFromDatabase());
+        service = new UtilisateurServiceImpl();
+        getDataFromDatabase();
+        personTable.setItems(personData);
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("prenom"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<Utilisateur, String>("nom"));
         
@@ -71,11 +83,9 @@ public class ProfilEditerController {
         primaryStage.setWidth(600.0);
     }
     
-    public ObservableList<Utilisateur> getDataFromDatabase() {
-        ObservableList<Utilisateur> personData = FXCollections.observableArrayList();
-        UtilisateurService service = new UtilisateurServiceImpl();
+    public void getDataFromDatabase() {
+        personData = FXCollections.observableArrayList();
         personData.addAll(service.findAll());
-        return personData;
     }
     
     public void setFXMLAccueilController(AccueilController controller) {
@@ -92,6 +102,7 @@ public class ProfilEditerController {
             streetLabel.setText(user.getRue());
             postalCodeLabel.setText(user.getCodePostal());
             cityLabel.setText(user.getVille());
+            utilisateur = user;
         } else {
             firstNameLabel.setText("");
             lastNameLabel.setText("");
@@ -99,6 +110,104 @@ public class ProfilEditerController {
             streetLabel.setText("");
             postalCodeLabel.setText("");
             cityLabel.setText("");
+        }
+    }
+    
+    @FXML
+    private void handleNewUser(ActionEvent event) {
+        Utilisateur tempPerson = new Utilisateur();
+        boolean okClicked = showPersonNewDialog(tempPerson);
+        if (okClicked) {
+            personData.add(tempPerson);
+        }
+    }
+    
+    private boolean showPersonNewDialog(Utilisateur tempPerson) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ProfilEditerController.class.getResource("/fxml/view/UtilisateurNouveau.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("New Person");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            
+            UtilisateurNouveauController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            
+            dialogStage.showAndWait();
+            
+            return controller.isOkClicked();
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    private boolean showPersonEditDialog(Utilisateur tempPerson) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(ProfilEditerController.class.getResource("/fxml/view/UtilisateurEditer.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+            
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Edit Person");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+            
+            EditerUtilisateurController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setPerson(utilisateur);
+            
+            dialogStage.showAndWait();
+            
+            return controller.isOkClicked();
+        } catch(Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    @FXML
+    private void handleEditUser(ActionEvent event) {
+        Utilisateur selectedPerson = personTable.getSelectionModel().getSelectedItem();
+        if (selectedPerson != null) {
+            boolean okClicked = showPersonEditDialog(selectedPerson);
+            if (okClicked) {
+                showPersonDetails(selectedPerson);
+            }
+
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(primaryStage);
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Person Selected");
+            alert.setContentText("Please select a person in the table.");
+            
+            alert.showAndWait();
+        }
+    }
+    @FXML
+    private void handleDeleteUser(ActionEvent event) {
+        int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            personTable.getItems().remove(selectedIndex);
+            service.deleteUtilisateur(utilisateur);
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(AlertType.WARNING);
+            alert.initOwner(NavigationController.getMainStage());
+            alert.setTitle("No Selection");
+            alert.setHeaderText("No Person Selected");
+            alert.setContentText("Please select a person in the table.");
+            
+            alert.showAndWait();
         }
     }
 }

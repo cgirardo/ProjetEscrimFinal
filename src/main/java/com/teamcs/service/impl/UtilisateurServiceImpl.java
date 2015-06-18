@@ -62,4 +62,11 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         dao.closeCurrentSessionwithTransaction();
         return users;
     }
+
+    @Override
+    public void deleteUtilisateur(Utilisateur utilisateur) {
+        dao.openCurrentSessionwithTransaction();
+        dao.deleteUtilisateur(utilisateur);
+        dao.closeCurrentSessionwithTransaction();
+    }
 }

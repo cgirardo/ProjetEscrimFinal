@@ -6,6 +6,8 @@
 package com.teamcs.controller;
 
 import com.teamcs.database.bean.Utilisateur;
+import com.teamcs.service.UtilisateurService;
+import com.teamcs.service.impl.UtilisateurServiceImpl;
 import com.teamcs.util.DateUtil;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,7 +36,8 @@ public class EditerUtilisateurController implements Initializable {
     private TextField cityField;
     @FXML
     private TextField mailField;
-
+    
+    UtilisateurService service = new UtilisateurServiceImpl();
 
     private Stage dialogStage;
     private Utilisateur user;
@@ -46,6 +49,7 @@ public class EditerUtilisateurController implements Initializable {
      */
     @FXML
     private void initialize() {
+        service = new UtilisateurServiceImpl();
     }
 
     /**
@@ -71,7 +75,6 @@ public class EditerUtilisateurController implements Initializable {
         postalCodeField.setText(user.getCodePostal());
         cityField.setText(user.getVille());
         mailField.setText(user.getMail());
-        mailField.setPromptText("dd.mm.yyyy");
     }
 
     /**
@@ -97,6 +100,8 @@ public class EditerUtilisateurController implements Initializable {
             user.setMail(mailField.getText());
 
             okClicked = true;
+            service.updateUtilisateur(user);
+            
             dialogStage.close();
         }
     }
@@ -129,13 +134,6 @@ public class EditerUtilisateurController implements Initializable {
 
         if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
             errorMessage += "No valid postal code!\n"; 
-        } else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(postalCodeField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "No valid postal code (must be an integer)!\n"; 
-            }
         }
 
         if (cityField.getText() == null || cityField.getText().length() == 0) {
@@ -144,10 +142,6 @@ public class EditerUtilisateurController implements Initializable {
 
         if (mailField.getText() == null || mailField.getText().length() == 0) {
             errorMessage += "No valid birthday!\n";
-        } else {
-            if (!DateUtil.validDate(mailField.getText())) {
-                errorMessage += "No valid birthday. Use the format dd.mm.yyyy!\n";
-            }
         }
 
         if (errorMessage.length() == 0) {
@@ -168,6 +162,6 @@ public class EditerUtilisateurController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 }
