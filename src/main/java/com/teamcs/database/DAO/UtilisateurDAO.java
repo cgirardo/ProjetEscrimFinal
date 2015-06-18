@@ -20,5 +20,7 @@ public interface UtilisateurDAO {
     
     List<Utilisateur> findAllUtilisateur();
     
-    void updateUtilisateur(Utilisateur utilisateur);    
+    void updateUtilisateur(Utilisateur utilisateur);   
+    
+    void deleteUtilisateur(Utilisateur utilisateur);
 }

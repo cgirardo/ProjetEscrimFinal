@@ -22,4 +22,6 @@ public interface UtilisateurService {
     List<Utilisateur> findAll();
     
     void updateUtilisateur(Utilisateur utilisateur);
+    
+    void deleteUtilisateur(Utilisateur utilisateur);
 }

@@ -5,25 +5,31 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.database.bean.Statut;
 import com.teamcs.database.bean.Utilisateur;
+import com.teamcs.service.StatutService;
 import com.teamcs.service.UtilisateurService;
+import com.teamcs.service.impl.StatutServiceImpl;
 import com.teamcs.service.impl.UtilisateurServiceImpl;
-import com.teamcs.util.DateUtil;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author chris_000
  */
-public class EditerUtilisateurController implements Initializable {
-
+public class UtilisateurNouveauController implements Initializable {
+    
+    @FXML
+    private ComboBox<Statut> statutComboBox;
+    
     @FXML
     private TextField firstNameField;
     @FXML
@@ -36,22 +42,18 @@ public class EditerUtilisateurController implements Initializable {
     private TextField cityField;
     @FXML
     private TextField mailField;
+    @FXML
+    private TextField mdpField;
+    @FXML
+    private TextField identifiantField;
     
+    StatutService statutService = new StatutServiceImpl();
     UtilisateurService service = new UtilisateurServiceImpl();
 
     private Stage dialogStage;
     private Utilisateur user;
     private boolean okClicked = false;
-
-    /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
-     */
-    @FXML
-    private void initialize() {
-        service = new UtilisateurServiceImpl();
-    }
-
+    
     /**
      * Sets the stage of this dialog.
      * 
@@ -60,23 +62,7 @@ public class EditerUtilisateurController implements Initializable {
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
-
-    /**
-     * Sets the person to be edited in the dialog.
-     * 
-     * @param person
-     */
-    public void setPerson(Utilisateur user) {
-        this.user = user;
-
-        firstNameField.setText(user.getPrenom());
-        lastNameField.setText(user.getNom());
-        streetField.setText(user.getRue());
-        postalCodeField.setText(user.getCodePostal());
-        cityField.setText(user.getVille());
-        mailField.setText(user.getMail());
-    }
-
+    
     /**
      * Returns true if the user clicked OK, false otherwise.
      * 
@@ -85,13 +71,17 @@ public class EditerUtilisateurController implements Initializable {
     public boolean isOkClicked() {
         return okClicked;
     }
-
+    
     /**
      * Called when the user clicks ok.
      */
     @FXML
     private void handleOk() {
         if (isInputValid()) {
+            user = new Utilisateur();
+            user.setLogin(identifiantField.getText());
+            user.setMotDePasse(mdpField.getText());
+            user.setStatut(statutComboBox.getSelectionModel().getSelectedItem());
             user.setPrenom(firstNameField.getText());
             user.setNom(lastNameField.getText());
             user.setRue(streetField.getText());
@@ -100,12 +90,12 @@ public class EditerUtilisateurController implements Initializable {
             user.setMail(mailField.getText());
 
             okClicked = true;
-            service.updateUtilisateur(user);
+            service.saveUtilisateur(user);
             
             dialogStage.close();
         }
     }
-
+    
     /**
      * Called when the user clicks cancel.
      */
@@ -113,7 +103,7 @@ public class EditerUtilisateurController implements Initializable {
     private void handleCancel() {
         dialogStage.close();
     }
-
+    
     /**
      * Validates the user input in the text fields.
      * 
@@ -141,14 +131,26 @@ public class EditerUtilisateurController implements Initializable {
         }
 
         if (mailField.getText() == null || mailField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "No valid mail!\n";
+        }
+        
+        if (mdpField.getText() == null || mdpField.getText().length() == 0) {
+            errorMessage += "No valid mdp!\n";
+        }
+        
+        if (identifiantField.getText() == null || identifiantField.getText().length() == 0) {
+            errorMessage += "No valid identifiant!\n";
+        }
+        
+        if (statutComboBox.getItems() == null || statutComboBox.getItems().size() == 0) {
+            errorMessage += "No valid statut!\n";
         }
 
         if (errorMessage.length() == 0) {
             return true;
         } else {
             // Show the error message.
-            Alert alert = new Alert(AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(dialogStage);
             alert.setTitle("Invalid Fields");
             alert.setHeaderText("Please correct invalid fields");
@@ -160,8 +162,13 @@ public class EditerUtilisateurController implements Initializable {
         }
     }
     
+    /**
+     * Initializes the controller class.
+     */
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        
-    }
+    public void initialize(URL url, ResourceBundle rb) {
+        for(Statut statut : statutService.findAll()) {
+            statutComboBox.getItems().add(statut);
+        }
+    }    
 }
