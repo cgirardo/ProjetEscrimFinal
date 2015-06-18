@@ -6,11 +6,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="connexion" prefHeight="300" prefWidth="300" xmlns:fx="http://javafx.com/fxml" fx:controller="com.teamcs.controller.ConnexionController">
+<AnchorPane fx:id="connexion" styleClass="background" prefHeight="300" prefWidth="300" stylesheets="@styles/MainTheme.css" xmlns:fx="http://javafx.com/fxml" fx:controller="com.teamcs.controller.ConnexionController">
     <children>
-        <Label fx:id="welcometext" layoutX="48.0" layoutY="26.0" prefHeight="25.0" prefWidth="239.0" text="Bienvenue" />
-        <Label layoutX="48.0" layoutY="105.0" text="Identifiant:" />
-        <Label layoutX="48.0" layoutY="143.0" text="Mot de passe:" />
+        <Label fx:id="welcometext" styleClass="label-header" layoutX="48.0" layoutY="26.0" prefHeight="25.0" prefWidth="239.0" text="Bienvenue" />
+        <Label layoutX="48.0" layoutY="105.0" text="Identifiant:" styleClass="label-bright"/>
+        <Label layoutX="48.0" layoutY="143.0" text="Mot de passe:" styleClass="label-bright"/>
         <TextField fx:id="identifiant" layoutX="137.0" layoutY="101.0" prefHeight="30.0" prefWidth="150.0" promptText="identifiant" />
         <PasswordField fx:id="mdp" layoutX="137.0" layoutY="139.0" prefHeight="30.0" prefWidth="150.0" promptText="mot de passe" />
         <Button id="connexionButton" fx:id="connexionButton" layoutX="212.0" layoutY="204.0" mnemonicParsing="false" onAction="#connexionButtonAction" prefHeight="30.0" prefWidth="75.0" text="Connexion" />

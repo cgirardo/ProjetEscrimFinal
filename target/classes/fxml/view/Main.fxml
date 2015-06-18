@@ -6,6 +6,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane fx:id="viewHolder" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.common.MainController">                                            
+<BorderPane fx:id="viewHolder" stylesheets="@/styles/MainTheme.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.common.MainController">                                            
     
 </BorderPane>

@@ -1,4 +1,5 @@
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\ProfilEditerController.java
+D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\EditerUtilisateurController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\common\MainController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MissionsConsulterController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\EstcontenudansId.java
@@ -17,6 +18,7 @@ D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\C
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Utilisateur.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\impl\MedicamentDAOImpl.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\ConnexionController.java
+D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\util\DateUtil.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\CaissesEditerController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MedicamentsEditerController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\service\impl\CaisseServiceImpl.java

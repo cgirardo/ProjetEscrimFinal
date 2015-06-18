@@ -48,6 +48,7 @@ and open the template in the editor.
 .table-view .column-header, .table-view .filler {
     -fx-size: 35;
     -fx-border-width: 0 0 1 0;
+    -fx-background-color: transparent;
     -fx-border-color: 
         transparent
         transparent
@@ -68,7 +69,7 @@ and open the template in the editor.
     -fx-background-color: -fx-focus-color;
 }
 
-.split-pane:horizontal > * > .split-pane-divider {
+.split-pane:horizontal > .split-pane-divider {
     -fx-border-color: transparent #1d1d1d transparent #1d1d1d;
     -fx-background-color: transparent, derive(#1d1d1d,20%);
 }
@@ -79,7 +80,10 @@ and open the template in the editor.
 
 .menu-bar {
     -fx-background-color: derive(#1d1d1d,20%);
-    -fx-selection-bar: derive(-fx-background,-7%);
+}
+
+.context-menu {
+    -fx-background-color: derive(#1d1d1d,50%);
 }
 
 .menu-bar .label {
@@ -89,12 +93,14 @@ and open the template in the editor.
     -fx-opacity: 0.9;
 }
 
+.menu .left-container {
+    -fx-background-color: black;
+}
+
 .text-field {
     -fx-font-size: 12pt;
     -fx-font-family: "Segoe UI Semibold";
 }
-
-
 
 /* 
  * Metro style Push Button

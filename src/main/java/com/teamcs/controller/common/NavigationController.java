@@ -64,7 +64,11 @@ public class NavigationController {
     public static void setMainStage(Stage mainStage) {
         NavigationController.mainStage = mainStage;
     }
-
+    
+    public static Stage getMainStage() {
+        return NavigationController.mainStage;
+    }
+    
     public static void setCurrentScene(Scene currentScene) {
         NavigationController.currentScene = currentScene;
     }

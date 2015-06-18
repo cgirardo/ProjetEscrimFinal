@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="com.teamcs.controller.common.MainController">
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@styles/MainTheme.css" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="com.teamcs.controller.common.MainController">
     <children>
         <Label text="je suis connecté" />
     </children>

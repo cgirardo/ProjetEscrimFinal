@@ -172,7 +172,8 @@ public class AccueilController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        primaryStage = NavigationController.getMainStage();
+        primaryStage.setHeight(300.0);
+        primaryStage.setWidth(300.0);
     }   
-    
 }

@@ -1,5 +1,6 @@
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Utilisateur;
 import com.teamcs.service.UtilisateurService;
 import com.teamcs.service.impl.UtilisateurServiceImpl;
@@ -12,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -19,6 +21,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
  * @author chris_000
  */
 public class ProfilEditerController {
+    
+    Stage primaryStage;
     
     @FXML
     private TableView<Utilisateur> personTable;
@@ -57,11 +61,14 @@ public class ProfilEditerController {
         showPersonDetails(null);
         
         personTable.getSelectionModel().selectedItemProperty().addListener(
-                new ChangeListener<Utilisateur>() {
-                    public void changed(ObservableValue<? extends Utilisateur> observable, Utilisateur oldValue, Utilisateur newValue) {
-                         showPersonDetails(newValue);
-                    }
-                });
+            new ChangeListener<Utilisateur>() {
+                public void changed(ObservableValue<? extends Utilisateur> observable, Utilisateur oldValue, Utilisateur newValue) {
+                     showPersonDetails(newValue);
+                }
+            });
+        primaryStage = NavigationController.getMainStage();
+        primaryStage.setHeight(600.0);
+        primaryStage.setWidth(600.0);
     }
     
     public ObservableList<Utilisateur> getDataFromDatabase() {
