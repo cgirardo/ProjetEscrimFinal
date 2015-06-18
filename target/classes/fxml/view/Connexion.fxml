@@ -15,6 +15,6 @@
         <PasswordField fx:id="mdp" layoutX="137.0" layoutY="139.0" prefHeight="30.0" prefWidth="150.0" promptText="mot de passe" />
         <Button id="connexionButton" fx:id="connexionButton" layoutX="177.0" layoutY="204.0" mnemonicParsing="false" onAction="#connexionButtonAction" prefHeight="31.0" prefWidth="128.0" text="Connexion" />
         <Button id="resetButton" fx:id="resetButton" layoutX="33.0" layoutY="204.0" mnemonicParsing="false" onAction="#resetButtonAction" prefHeight="31.0" prefWidth="120.0" text="Effacer" />
-        <Label id="actiontarget" fx:id="label" layoutX="137.0" layoutY="252.0" prefHeight="60.0" prefWidth="150.0" />
+      <Label fx:id="connexionError" layoutX="123.0" layoutY="261.0" prefHeight="39.0" prefWidth="180.0" />
     </children>
 </AnchorPane>

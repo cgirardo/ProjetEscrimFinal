@@ -30,7 +30,7 @@ public class ConnexionController implements Initializable {
     @FXML private TextField identifiant;
     @FXML private PasswordField mdp;
     @FXML private Stage stage;
-    @FXML private Label label;
+    @FXML private Label connexionError;
     
     @FXML
     private void connexionButtonAction(ActionEvent event) {
@@ -41,7 +41,7 @@ public class ConnexionController implements Initializable {
             statut = service.connectUtilisateur(login, pcw);         
             selectView(statut);
         } catch (UtilisateurException e) {
-            label.setText(e.getMessage());
+            connexionError.setText(e.getMessage());
         } catch (IOException ex) {
             Logger.getLogger(ConnexionController.class.getName()).log(Level.SEVERE, null, ex);
         }
