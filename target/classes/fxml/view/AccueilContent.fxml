@@ -8,7 +8,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.AccueilController">
     <children>
-        <Label text="Tableau de bord" layoutX="104.0" layoutY="51.0" styleClass="label-header" />
+            <Label text="Tableau de bord" layoutX="104.0" layoutY="51.0" styleClass="label-header" />
         
             <Label text="Dernière connexion: " />
             <Label text="Dernière vérification: " />

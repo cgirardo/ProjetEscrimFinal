@@ -17,20 +17,7 @@ import javafx.fxml.Initializable;
  */
 public class AccueilController implements Initializable {
     
-//    @FXML
-//    private void handleNewAlert(ActionEvent event) {
-//        
-//    }
-//    
-//    @FXML
-//    private void handleEditAlert(ActionEvent event) {
-//        
-//    }
-//    
-//    @FXML
-//    private void handleDeleteAlert(ActionEvent event) {
-//        
-//    }
+    
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {

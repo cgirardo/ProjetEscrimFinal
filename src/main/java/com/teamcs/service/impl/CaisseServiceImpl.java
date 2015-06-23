@@ -5,9 +5,10 @@
  */
 package com.teamcs.service.impl;
 
-import com.teamcs.database.DAO.CaisseDAO;
+import com.teamcs.database.DAO.impl.CaisseDAOImpl;
 import com.teamcs.database.bean.Caisse;
 import com.teamcs.service.CaisseService;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,30 +17,48 @@ import java.util.List;
  */
 public class CaisseServiceImpl implements CaisseService {
     
-    private CaisseDAO dao;
+    private CaisseDAOImpl dao;
+    
+    public CaisseServiceImpl() {
+        dao = new CaisseDAOImpl();
+    }
     
     @Override
     public void saveCaisse(Caisse caisse) {
+        dao.openCurrentSessionwithTransaction();
         dao.saveCaisse(caisse);
+        dao.closeCurrentSessionwithTransaction();
     }
 
     @Override
     public List<Caisse> findAllCaisse() {
-        return dao.findAllCaisse();
+        List<Caisse> caisses = new ArrayList<Caisse>();
+        dao.openCurrentSessionwithTransaction();
+        caisses = dao.findAllCaisse();
+        dao.closeCurrentSessionwithTransaction();
+        return caisses;
     }
 
     @Override
     public void deleteCaisseById(int id) {
+        dao.openCurrentSessionwithTransaction();
         dao.deleteCaisseById(id);
+        dao.closeCurrentSessionwithTransaction();
     }
 
     @Override
     public Caisse findById(int id) {
-        return dao.findById(id);
+        Caisse caisse = new Caisse();
+        dao.openCurrentSessionwithTransaction();
+        caisse = dao.findById(id);
+        dao.closeCurrentSessionwithTransaction();
+        return caisse;
     }
 
     @Override
     public void updateCaisse(Caisse caisse) {
+        dao.openCurrentSessionwithTransaction();
         dao.updateCaisse(caisse);
+        dao.closeCurrentSessionwithTransaction();
     }
 }

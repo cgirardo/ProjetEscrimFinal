@@ -21,8 +21,6 @@ D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\U
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\impl\MedicamentDAOImpl.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\ConnexionController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\util\DateUtil.java
-D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\CaissesEditerController.java
-D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MedicamentsEditerController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\service\impl\CaisseServiceImpl.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\service\StatutService.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Medicament.java
@@ -44,6 +42,7 @@ D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\service\impl\St
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\service\impl\MedicamentServiceImpl.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Statut.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Configurationcolis.java
+D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MedicamentsConsulterController.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Configuration.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\MedicamentDAO.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Zcaeronef.java
@@ -61,3 +60,4 @@ D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\Medi
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\impl\AeronefDAOImpl.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\impl\CaisseDAOImpl.java
 D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\UtilisateurNouveauController.java
+D:\java\Source\Escrim\ProjetEscrimFinal\src\main\java\com\teamcs\controller\CaissesConsulterController.java

@@ -5,9 +5,10 @@
  */
 package com.teamcs.service.impl;
 
-import com.teamcs.database.DAO.MedicamentDAO;
+import com.teamcs.database.DAO.impl.MedicamentDAOImpl;
 import com.teamcs.database.bean.Medicament;
 import com.teamcs.service.MedicamentService;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,31 +17,49 @@ import java.util.List;
  */
 public class MedicamentServiceImpl implements MedicamentService {
     
-    private MedicamentDAO dao;
+    private MedicamentDAOImpl dao;
+    
+    public MedicamentServiceImpl() {
+        dao = new MedicamentDAOImpl();
+    }
     
     @Override
     public void saveMedicament(Medicament medicament) {
+        dao.openCurrentSessionwithTransaction();
         dao.saveMedicament(medicament);
+        dao.closeCurrentSessionwithTransaction();
     }
 
     @Override
     public List<Medicament> findAllMedicament() {
-        return dao.findAllMedicament();
+        List<Medicament> medicaments = new ArrayList<Medicament>();
+        dao.openCurrentSessionwithTransaction();
+        medicaments = dao.findAllMedicament();
+        dao.closeCurrentSessionwithTransaction();
+        return medicaments;
     }
 
     @Override
     public void deleteMedicamentById(int id) {
+        dao.openCurrentSessionwithTransaction();
         dao.deleteMedicamentById(id);
+        dao.closeCurrentSessionwithTransaction();
     }
 
     @Override
     public Medicament findByName(String name) {
-        return dao.findByName(name);
+        Medicament medoc = new Medicament();
+        dao.openCurrentSessionwithTransaction();
+        medoc = dao.findByName(name);
+        dao.closeCurrentSessionwithTransaction();
+        return medoc;
     }
 
     @Override
     public void updateMedicament(Medicament medicament) {
+        dao.openCurrentSessionwithTransaction();
         dao.updateMedicament(medicament);
+        dao.closeCurrentSessionwithTransaction();
     }
     
 }

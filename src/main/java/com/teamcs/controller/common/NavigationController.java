@@ -35,9 +35,9 @@ public class NavigationController {
     //occupe une partie de la scene principale
     public static String VIEW_PROFIL_EDITER = "/fxml/view/ProfilEditer.fxml";
     public static String VIEW_AVIONS_CONSULTER = "/fxml/view/AvionsConsulter.fxml";
-    public static String VIEW_CAISSES_EDITER = "/fxml/view/CaissesEditer.fxml";
+    public static String VIEW_CAISSES_CONSULTER = "/fxml/view/CaissesConsulter.fxml";
     public static String VIEW_CAISSES_VERIFIER = "/fxml/view/CaissesVerifier.fxml";
-    public static String VIEW_MEDICAMENTS_EDITER = "/fxml/view/MedicamentsEditer.fxml";
+    public static String VIEW_MEDICAMENTS_CONSULTER = "/fxml/view/MedicamentsConsulter.fxml";
     public static String VIEW_MEDICAMENTS_VERIFIER = "/fxml/view/MedicamentsVerifier.fxml";
     public static String VIEW_MISSIONS_CONSULTER = "/fxml/view/MissionsConsulter.fxml";
     public static String VIEW_MISSIONS_PROGRAMMER = "/fxml/view/MissionsProgrammer.fxml";

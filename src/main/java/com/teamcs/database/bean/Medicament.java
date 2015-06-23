@@ -12,7 +12,7 @@ public class Medicament  implements java.io.Serializable {
 
      private Integer idMedicament;
      private Classetherapeutique classetherapeutique;
-     private int libelleMedicament;
+     private String libelleMedicament;
      private Date dlu;
      private String dci;
      private String formeDosage;
@@ -22,7 +22,7 @@ public class Medicament  implements java.io.Serializable {
     public Medicament() {
     }
 
-    public Medicament(Classetherapeutique classetherapeutique, int libelleMedicament, Date dlu, String dci, String formeDosage, int lot, int dotationU7) {
+    public Medicament(Classetherapeutique classetherapeutique, String libelleMedicament, Date dlu, String dci, String formeDosage, int lot, int dotationU7) {
        this.classetherapeutique = classetherapeutique;
        this.libelleMedicament = libelleMedicament;
        this.dlu = dlu;
@@ -46,11 +46,11 @@ public class Medicament  implements java.io.Serializable {
     public void setClassetherapeutique(Classetherapeutique classetherapeutique) {
         this.classetherapeutique = classetherapeutique;
     }
-    public int getLibelleMedicament() {
+    public String getLibelleMedicament() {
         return this.libelleMedicament;
     }
     
-    public void setLibelleMedicament(int libelleMedicament) {
+    public void setLibelleMedicament(String libelleMedicament) {
         this.libelleMedicament = libelleMedicament;
     }
     public Date getDlu() {

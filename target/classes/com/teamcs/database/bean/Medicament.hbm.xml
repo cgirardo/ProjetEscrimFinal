@@ -11,8 +11,8 @@
         <many-to-one name="classetherapeutique" class="com.teamcs.database.bean.Classetherapeutique" fetch="select">
             <column name="IdClasseTherapeutique" not-null="true" />
         </many-to-one>
-        <property name="libelleMedicament" type="int">
-            <column name="LibelleMedicament" not-null="true" />
+        <property name="libelleMedicament" type="string">
+            <column name="LibelleMedicament" length="50" not-null="true" />
         </property>
         <property name="dlu" type="date">
             <column name="DLU" length="10" not-null="true" />

@@ -19,7 +19,7 @@
                 </Menu>
                 <Menu mnemonicParsing="false" text="Médicaments">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#itemMedicamentsRechercherAction" text="Consulter" />
+                        <MenuItem mnemonicParsing="false" onAction="#itemMedicamentsConsulterAction" text="Consulter" />
                         <MenuItem mnemonicParsing="false" onAction="#itemMedicamentsVerifierAction" text="Vérifier stock" />
                     </items>
                 </Menu>
