@@ -54,7 +54,7 @@ public class ProfilEditerController {
     @FXML
     private Label mailLabel;
     
-    private AccueilController controller;
+//    private MenuController controller;
     
     public ProfilEditerController() {
         
@@ -88,11 +88,11 @@ public class ProfilEditerController {
         personData.addAll(service.findAll());
     }
     
-    public void setFXMLAccueilController(AccueilController controller) {
-        this.controller = controller;
-        
-        personTable.setItems(controller.getUserData());
-    }
+//    public void setFXMLAccueilController(MenuController controller) {
+//        this.controller = controller;
+//        
+//        personTable.setItems(controller.getUserData());
+//    }
     
     private void showPersonDetails(Utilisateur user) {
         if(user != null) {
@@ -196,9 +196,10 @@ public class ProfilEditerController {
     @FXML
     private void handleDeleteUser(ActionEvent event) {
         int selectedIndex = personTable.getSelectionModel().getSelectedIndex();
+        Utilisateur selectedPerson = personTable.getSelectionModel().getSelectedItem();
         if (selectedIndex >= 0) {
             personTable.getItems().remove(selectedIndex);
-            service.deleteUtilisateur(utilisateur);
+            service.deleteUtilisateur(selectedPerson);
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);

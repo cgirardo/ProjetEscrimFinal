@@ -1,6 +1,10 @@
 package com.teamcs.database.bean;
 // Generated 14 juin 2015 18:30:48 by Hibernate Tools 4.3.1
 
+import java.util.HashSet;
+import java.util.Set;
+
+
 
 
 /**
@@ -33,7 +37,7 @@ public class Utilisateur  implements java.io.Serializable {
        this.codePostal = codePostal;
        this.motDePasse = motDePasse;
     }
-   
+    
     public String getLogin() {
         return this.login;
     }

@@ -5,11 +5,13 @@
  */
 package com.teamcs.util;
 
+import java.text.DateFormatSymbols;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -18,8 +20,9 @@ import java.util.Date;
  */
 public class DateUtil {
     /** The date pattern that is used for conversion. Change as you wish. */
-    private static final String DATE_PATTERN = "dd/MM/yyyy";
-
+    public static final String DATE_PATTERN = "dd/MM/yyyy";
+    public static final String DATE_PATTERN2 = "dd/MM/yyy 'at' HH:mm:ss";
+    
     /** The date formatter. */
     private static final SimpleDateFormat DATE_FORMATTER = new SimpleDateFormat(DATE_PATTERN);
 
@@ -35,6 +38,13 @@ public class DateUtil {
             return null;
         }
         return DATE_FORMATTER.format(date);
+    }
+    
+    public static String format(Date date, String pattern) {
+        if (date == null) {
+            return null;
+        }
+        return new SimpleDateFormat(pattern).format(date);
     }
 
     /**
@@ -53,7 +63,41 @@ public class DateUtil {
             return null;
         }
     }
-
+    
+    public static int getDayOfMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DAY_OF_MONTH);
+    }
+    
+    public static int getMonth(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.MONTH);
+    }
+    
+    public static int getPreviousMonth(Date date, int monthIndex) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.MONTH - monthIndex);
+    }
+    
+    public static int getYear(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.YEAR);
+    }
+    
+    public static String getMonthForInt(int num) {
+        String month = "";
+        DateFormatSymbols dateFormatSymbols = new DateFormatSymbols();
+        String[] months = dateFormatSymbols.getMonths();
+        if(num >= 0 && num <= 11) {
+            month = months[num];
+        }
+        return month;
+    }
+    
     /**
      * Checks the String whether it is a valid date.
      * 

@@ -34,7 +34,7 @@ public class NavigationController {
     public static String VIEW_ERREUR = "/fxml/view/Erreur404.fxml";
     //occupe une partie de la scene principale
     public static String VIEW_PROFIL_EDITER = "/fxml/view/ProfilEditer.fxml";
-    public static String VIEW_AVIONS_EDITER = "/fxml/view/AvionsEditer.fxml";
+    public static String VIEW_AVIONS_CONSULTER = "/fxml/view/AvionsConsulter.fxml";
     public static String VIEW_CAISSES_EDITER = "/fxml/view/CaissesEditer.fxml";
     public static String VIEW_CAISSES_VERIFIER = "/fxml/view/CaissesVerifier.fxml";
     public static String VIEW_MEDICAMENTS_EDITER = "/fxml/view/MedicamentsEditer.fxml";

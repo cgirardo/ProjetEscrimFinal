@@ -18,33 +18,33 @@ import java.util.List;
  */
 public class UtilisateurServiceImpl implements UtilisateurService {
 
-    private UtilisateurDAOImpl dao;
+    private UtilisateurDAOImpl userDAO;
     
     public UtilisateurServiceImpl() {
-        dao = new UtilisateurDAOImpl();
+        userDAO = new UtilisateurDAOImpl();
     }
     
     @Override
     public void saveUtilisateur(Utilisateur utilisateur) {
-        dao.openCurrentSessionwithTransaction();
-        dao.saveUtilisateur(utilisateur);
-        dao.closeCurrentSessionwithTransaction();
+        userDAO.openCurrentSessionwithTransaction();
+        userDAO.saveUtilisateur(utilisateur);
+        userDAO.closeCurrentSessionwithTransaction();
     }
 
     @Override
     public void updateUtilisateur(Utilisateur utilisateur) {
-        dao.openCurrentSessionwithTransaction();
-        dao.updateUtilisateur(utilisateur);
-        dao.closeCurrentSessionwithTransaction();
+        userDAO.openCurrentSessionwithTransaction();
+        userDAO.updateUtilisateur(utilisateur);
+        userDAO.closeCurrentSessionwithTransaction();
     }                
 
     @Override
     public String connectUtilisateur(String login, String password) throws UtilisateurException {
-        dao.openCurrentSession();
-        Utilisateur user = dao.findByLogin(login);
+        userDAO.openCurrentSession();
+        Utilisateur user = userDAO.findByLogin(login);
         if(user != null) {
             if(user.getMotDePasse().equals(password)) {
-                dao.closeCurrentSession();
+                userDAO.closeCurrentSession();
                 return user.getStatut().getLibelleStatut();
             } else {
                 throw new UtilisateurException("Mot de passe erroné");
@@ -57,16 +57,16 @@ public class UtilisateurServiceImpl implements UtilisateurService {
     @Override
     public List<Utilisateur> findAll() {
         List<Utilisateur> users = new ArrayList<Utilisateur>();
-        dao.openCurrentSessionwithTransaction();
-        users = dao.findAllUtilisateur();
-        dao.closeCurrentSessionwithTransaction();
+        userDAO.openCurrentSessionwithTransaction();
+        users = userDAO.findAllUtilisateur();
+        userDAO.closeCurrentSessionwithTransaction();
         return users;
     }
 
     @Override
     public void deleteUtilisateur(Utilisateur utilisateur) {
-        dao.openCurrentSessionwithTransaction();
-        dao.deleteUtilisateur(utilisateur);
-        dao.closeCurrentSessionwithTransaction();
+        userDAO.openCurrentSessionwithTransaction();
+        userDAO.deleteUtilisateur(utilisateur);
+        userDAO.closeCurrentSessionwithTransaction();
     }
 }

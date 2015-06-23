@@ -7,15 +7,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.AccueilController">
+<AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.MenuController">
     <children>
         <MenuBar layoutY="1.0" prefHeight="30.0" prefWidth="600.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Profil">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#itemProfilEditerAction" text="Editer" />
-                        <MenuItem mnemonicParsing="false" onAction="#itemProfilDeconnecterAction" text="Se déconnecter" />
+                        <MenuItem mnemonicParsing="false" onAction="#itemProfilEditerAction" text="Consulter" />
                         <MenuItem mnemonicParsing="false" onAction="#itemProfilQuitterAction" text="Quitter" />
                     </items>
                 </Menu>

@@ -11,16 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class ConnexionController implements Initializable {
@@ -48,22 +42,22 @@ public class ConnexionController implements Initializable {
     }
     
     private void selectView(String statut) throws IOException {
-        NavigationController.loadMenu(NavigationController.MENU_LOG);
+
         switch(statut) {
             case "Logisticien":
-//                NavigationController.loadMenu(NavigationController.MENU_LOG);
+                NavigationController.loadMenu(NavigationController.MENU_LOG);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
                 break;
             case "Pharmacien":
-//                NavigationController.loadMenu(NavigationController.MENU_PHA);
+                NavigationController.loadMenu(NavigationController.MENU_PHA);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
                 break;
             case "Medecin":
-//                NavigationController.loadMenu(NavigationController.MENU_MED);
+                NavigationController.loadMenu(NavigationController.MENU_MED);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
                 break;
             case "Infirmier":
-//                NavigationController.loadMenu(NavigationController.MENU_MED);
+                NavigationController.loadMenu(NavigationController.MENU_MED);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
                 break;
             default:

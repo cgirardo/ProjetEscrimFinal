@@ -1,11 +1,11 @@
 com\teamcs\database\DAO\MedicamentDAO.class
-com\teamcs\controller\AvionsEditerController.class
 com\teamcs\database\DAO\impl\StatutDAOImpl.class
 com\teamcs\database\DAO\StatutDAO.class
 com\teamcs\database\bean\Utilisateur.class
 com\teamcs\service\AeronefService.class
 com\teamcs\database\bean\Materiel.class
 com\teamcs\database\bean\Estcontenudans.class
+com\teamcs\controller\AvionsConsulterController$1.class
 com\teamcs\app\ConnexionApp.class
 com\teamcs\database\bean\Configuration.class
 com\teamcs\controller\MedicamentsVerifierController.class
@@ -41,6 +41,7 @@ com\teamcs\database\DAO\impl\MedicamentDAOImpl.class
 com\teamcs\database\DAO\AbstractDAO.class
 com\teamcs\controller\common\MainController.class
 com\teamcs\controller\CaissesEditerController.class
+com\teamcs\controller\MenuController.class
 com\teamcs\controller\AccueilController.class
 com\teamcs\database\DAO\UtilisateurDAO.class
 com\teamcs\database\DAO\impl\CaisseDAOImpl.class
@@ -59,5 +60,6 @@ com\teamcs\controller\EditerUtilisateurController.class
 com\teamcs\database\DAO\AeronefDAO.class
 com\teamcs\database\DAO\impl\UtilisateurDAOImpl.class
 com\teamcs\controller\MissionsProgrammerController.class
+com\teamcs\controller\AvionsConsulterController.class
 com\teamcs\database\bean\ConfigurationaeronefId.class
 com\teamcs\database\bean\Observation.class

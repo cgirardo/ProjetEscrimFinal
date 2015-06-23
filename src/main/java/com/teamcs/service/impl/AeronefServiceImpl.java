@@ -6,8 +6,10 @@
 package com.teamcs.service.impl;
 
 import com.teamcs.database.DAO.AeronefDAO;
+import com.teamcs.database.DAO.impl.AeronefDAOImpl;
 import com.teamcs.database.bean.Aeronef;
 import com.teamcs.service.AeronefService;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -16,8 +18,12 @@ import java.util.List;
  */
 public class AeronefServiceImpl implements AeronefService {
     
-    private AeronefDAO dao;
-
+    private AeronefDAOImpl dao;
+    
+    public AeronefServiceImpl() {
+        dao = new AeronefDAOImpl();
+    }
+    
     @Override
     public void saveAeronef(Aeronef aeronef) {
         dao.saveAeronef(aeronef);
@@ -25,7 +31,11 @@ public class AeronefServiceImpl implements AeronefService {
 
     @Override
     public List<Aeronef> findAllAeronef() {
-        return dao.findAllAeronef();
+        List<Aeronef> aeronefs = new ArrayList<Aeronef>();
+        dao.openCurrentSessionwithTransaction();
+        aeronefs = dao.findAllAeronef();
+        dao.closeCurrentSessionwithTransaction();
+        return aeronefs;
     }
 
     @Override
