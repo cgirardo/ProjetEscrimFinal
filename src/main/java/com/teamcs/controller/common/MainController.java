@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 /**
@@ -40,5 +41,11 @@ public class MainController {
      */
     public void setView(Node node) {
         viewHolder.setCenter(node);
+//        setStyle();
+    }
+    
+    public void setStyle() {
+        Scene scene = new Scene(viewHolder);
+        scene.getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
     }
 }

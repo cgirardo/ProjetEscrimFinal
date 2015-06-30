@@ -21,6 +21,7 @@ public class NavigationController {
     private static Stage mainStage;
     private static Scene currentScene;
     private static Pane currentPane;
+    public static String profil;
     
     /** Chemin des différentes vues et styles utilisés */
     //menu bar
@@ -42,8 +43,11 @@ public class NavigationController {
     public static String VIEW_MISSIONS_CONSULTER = "/fxml/view/MissionsConsulter.fxml";
     public static String VIEW_MISSIONS_PROGRAMMER = "/fxml/view/MissionsProgrammer.fxml";
     //styles
-    public static String STYLE_CONNEXION = "/styles/Login.css";
     public static String STYLE_THEME = "/styles/MainTheme.css";
+    public static String STYLE_LOGISTICIEN = "/styles/logisticien.css";
+    public static String STYLE_MEDECIN = "/styles/medecin.css";
+    public static String STYLE_INFIRMIER = "/styles/infirmier.css";
+    public static String STYLE_PHARMACIEN = "/styles/pharmacien.css";
     
     /** Le controlleur de la couche principale de l'appli */
     private static MainController mainController;
@@ -73,6 +77,10 @@ public class NavigationController {
         NavigationController.currentScene = currentScene;
     }
 
+    public static Scene getCurrentScene() {
+        return currentScene;
+    }
+
     public static void setCurrentPane(Pane currentPane) {
         NavigationController.currentPane = currentPane;
     }
@@ -100,6 +108,7 @@ public class NavigationController {
     public static void loadView(String fxml) {
         try {
             mainController.setView((Node) FXMLLoader.load(NavigationController.class.getResource(fxml)));
+            
         } catch(IOException e) {
             e.printStackTrace();
         }
