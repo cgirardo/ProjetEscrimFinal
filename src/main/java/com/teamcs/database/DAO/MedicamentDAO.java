@@ -18,7 +18,7 @@ public interface MedicamentDAO {
     
     List<Medicament> findAllMedicament();
     
-    void deleteMedicamentById(int id);
+    void deleteMedicament(Medicament medicament);
     
     Medicament findByName(String name);
     

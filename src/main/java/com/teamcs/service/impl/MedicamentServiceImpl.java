@@ -5,7 +5,9 @@
  */
 package com.teamcs.service.impl;
 
+import com.teamcs.database.DAO.impl.ClassetherapeutiqueDAOImpl;
 import com.teamcs.database.DAO.impl.MedicamentDAOImpl;
+import com.teamcs.database.bean.Classetherapeutique;
 import com.teamcs.database.bean.Medicament;
 import com.teamcs.service.MedicamentService;
 import java.util.ArrayList;
@@ -18,9 +20,11 @@ import java.util.List;
 public class MedicamentServiceImpl implements MedicamentService {
     
     private MedicamentDAOImpl dao;
+    private ClassetherapeutiqueDAOImpl classeDAO;
     
     public MedicamentServiceImpl() {
         dao = new MedicamentDAOImpl();
+        classeDAO = new ClassetherapeutiqueDAOImpl();
     }
     
     @Override
@@ -40,9 +44,9 @@ public class MedicamentServiceImpl implements MedicamentService {
     }
 
     @Override
-    public void deleteMedicamentById(int id) {
+    public void deleteMedicament(Medicament medicament) {
         dao.openCurrentSessionwithTransaction();
-        dao.deleteMedicamentById(id);
+        dao.deleteMedicament(medicament);
         dao.closeCurrentSessionwithTransaction();
     }
 
@@ -60,6 +64,15 @@ public class MedicamentServiceImpl implements MedicamentService {
         dao.openCurrentSessionwithTransaction();
         dao.updateMedicament(medicament);
         dao.closeCurrentSessionwithTransaction();
+    }
+
+    @Override
+    public List<Classetherapeutique> findAllClasses() {
+        List<Classetherapeutique> classes = new ArrayList<Classetherapeutique>();
+        classeDAO.openCurrentSessionwithTransaction();
+        classes = classeDAO.findAll();
+        classeDAO.closeCurrentSessionwithTransaction();
+        return classes;
     }
     
 }

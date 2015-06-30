@@ -1,10 +1,12 @@
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Observation.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\Erreur404Controller.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\EstcontenudansId.java
+D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\impl\ClassetherapeutiqueDAOImpl.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\impl\MedicamentDAOImpl.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Statut.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\AbstractDAO.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Designation.java
+D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MedicamentsNouveauController.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MedicamentsVerifierController.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MissionsProgrammerController.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MissionsConsulterController.java
@@ -23,6 +25,7 @@ D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\Utilisateur
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\StatutDAO.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\EditerUtilisateurController.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Zcaeronef.java
+D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MedicamentsEditerController.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MenuController.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Estcontenudans.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\MedicamentDAO.java
@@ -60,4 +63,5 @@ D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Aeronef.
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\impl\StatutDAOImpl.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\common\MainController.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\controller\MedicamentsConsulterController.java
+D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\DAO\ClassetherapeutiqueDAO.java
 D:\java\Source\ProjetEscrimFinal\src\main\java\com\teamcs\database\bean\Utilisateur.java
