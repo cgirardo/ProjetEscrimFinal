@@ -7,11 +7,8 @@ package com.teamcs.controller;
  */
 
 import com.teamcs.controller.common.NavigationController;
-import com.teamcs.database.bean.Utilisateur;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,7 +24,6 @@ import javafx.stage.Stage;
 public class MenuController implements Initializable {
     
     private Stage primaryStage;
-    private BorderPane rootLayout;
     
     public Stage getPrimaryStage() {
         return primaryStage;
@@ -37,20 +33,9 @@ public class MenuController implements Initializable {
 
     }
     
-//    private ObservableList<Utilisateur> userData = FXCollections.observableArrayList();
-//    
-//    public ObservableList<Utilisateur> getUserData() {
-//        return userData;
-//    }
-    
-    @FXML private Stage stage;
-    @FXML MenuBar myMenuBar;
-    
     /**
      * METHODES BOUTONS COMMUNES
      */   
-    
-    @FXML private BorderPane myborder;
     
     @FXML
     public void itemProfilEditerAction(ActionEvent event) {  
@@ -82,8 +67,8 @@ public class MenuController implements Initializable {
     }
     
     @FXML
-    private void itemCaissesVerifierAction(ActionEvent event) {
-        
+    private void itemMaterielConsulterAction(ActionEvent event) {
+        NavigationController.loadView(NavigationController.VIEW_MATERIELS_CONSULTER);
     }
     
     @FXML

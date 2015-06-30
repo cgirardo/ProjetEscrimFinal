@@ -114,7 +114,7 @@ public class MedicamentsConsulterController {
     private boolean showMedocNewDialog(Medicament tempMedoc) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(UtilisateursConsulterController.class.getResource("/fxml/view/MedicamentsNouveau.fxml"));
+            loader.setLocation(MedicamentsConsulterController.class.getResource("/fxml/view/MedicamentsNouveau.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             
             Stage dialogStage = new Stage();
@@ -160,7 +160,7 @@ public class MedicamentsConsulterController {
     private boolean showMedocEditDialog(Medicament tempMedoc) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(UtilisateursConsulterController.class.getResource("/fxml/view/MedicamentsEditer.fxml"));
+            loader.setLocation(MedicamentsConsulterController.class.getResource("/fxml/view/MedicamentsEditer.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             
             Stage dialogStage = new Stage();

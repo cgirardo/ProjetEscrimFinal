@@ -37,6 +37,7 @@ public class NavigationController {
     public static String VIEW_AVIONS_CONSULTER = "/fxml/view/AvionsConsulter.fxml";
     public static String VIEW_CAISSES_CONSULTER = "/fxml/view/CaissesConsulter.fxml";
     public static String VIEW_MEDICAMENTS_CONSULTER = "/fxml/view/MedicamentsConsulter.fxml";
+    public static String VIEW_MATERIELS_CONSULTER = "/fxml/view/MaterielsConsulter.fxml";
     public static String VIEW_MISSIONS_CONSULTER = "/fxml/view/MissionsConsulter.fxml";
     public static String VIEW_MISSIONS_PROGRAMMER = "/fxml/view/MissionsProgrammer.fxml";
     //styles
