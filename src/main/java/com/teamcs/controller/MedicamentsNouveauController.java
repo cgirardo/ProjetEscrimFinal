@@ -25,7 +25,7 @@ import javafx.stage.Stage;
  */
 public class MedicamentsNouveauController implements Initializable {
     @FXML
-    private ComboBox<Classetherapeutique> classeComboBox;
+    private ComboBox<String> classeComboBox;
     
     @FXML
     private TextField libelleField;
@@ -72,7 +72,7 @@ public class MedicamentsNouveauController implements Initializable {
         if (isInputValid()) {
             medoc = new Medicament();
             medoc.setLibelleMedicament(libelleField.getText());
-            medoc.setClassetherapeutique(classeComboBox.getSelectionModel().getSelectedItem());
+            medoc.setClassetherapeutique(service.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
             medoc.setDci(dciField.getText());
             medoc.setDlu(DateUtil.parse(dluNameField.getText()));
             medoc.setLot(Integer.parseInt(lotNameField.getText()));
@@ -146,7 +146,7 @@ public class MedicamentsNouveauController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         for(Classetherapeutique classe : service.findAllClasses()) {
-            classeComboBox.getItems().add(classe);
+            classeComboBox.getItems().add(classe.getLibelleClasseTherapeutique());
         }
     }
 }

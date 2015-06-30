@@ -15,4 +15,6 @@ import java.util.List;
 public interface StatutDAO {
     
     List<Statut> getAllStatuts();
+    
+    Statut getStatutByName(String statut);
 }

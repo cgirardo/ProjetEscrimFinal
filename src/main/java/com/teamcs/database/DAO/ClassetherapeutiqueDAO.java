@@ -14,4 +14,6 @@ import java.util.List;
  */
 public interface ClassetherapeutiqueDAO {
     public List<Classetherapeutique> findAll();
+    
+    public Classetherapeutique findOne(String libelle);
 }

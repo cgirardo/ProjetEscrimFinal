@@ -65,8 +65,7 @@ public class ConnexionController implements Initializable {
                 NavigationController.getMainStage().getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_MEDECIN).toExternalForm());
                 break;
             default:
-                NavigationController.loadView(NavigationController.VIEW_ERREUR);
-                NavigationController.getMainStage().getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_THEME).toExternalForm());
+                
                 break;
         }
     }

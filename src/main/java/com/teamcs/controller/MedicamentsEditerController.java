@@ -28,7 +28,7 @@ public class MedicamentsEditerController implements Initializable {
     @FXML
     private TextField libelleField;
     @FXML
-    private ComboBox<Classetherapeutique> classeComboBox;
+    private ComboBox<String> classeComboBox;
     @FXML
     private TextField dciField;
     @FXML
@@ -73,7 +73,7 @@ public class MedicamentsEditerController implements Initializable {
         this.medoc = medicament;
 
         libelleField.setText(medoc.getLibelleMedicament());
-        classeComboBox.setValue(medoc.getClassetherapeutique());
+        classeComboBox.setValue(medoc.getClassetherapeutique().getLibelleClasseTherapeutique());
         dciField.setText(medoc.getDci());
         dluNameField.setText(DateUtil.format(medoc.getDlu()));
         lotNameField.setText(Integer.toString(medoc.getLot()));
@@ -97,7 +97,7 @@ public class MedicamentsEditerController implements Initializable {
     private void handleOk() {
         if (isInputValid()) {
             medoc.setLibelleMedicament(libelleField.getText());
-            medoc.setClassetherapeutique(classeComboBox.getSelectionModel().getSelectedItem());
+            medoc.setClassetherapeutique(service.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
             medoc.setDci(dciField.getText());
             medoc.setDlu(DateUtil.parse(dluNameField.getText()));
             medoc.setLot(Integer.parseInt(lotNameField.getText()));
@@ -167,6 +167,8 @@ public class MedicamentsEditerController implements Initializable {
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        
+        for(Classetherapeutique classe : service.findAllClasses()) {
+            classeComboBox.getItems().add(classe.getLibelleClasseTherapeutique());
+        }
     }
 }

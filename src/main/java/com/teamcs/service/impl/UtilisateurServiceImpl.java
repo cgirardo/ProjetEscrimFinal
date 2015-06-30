@@ -5,7 +5,9 @@
  */
 package com.teamcs.service.impl;
 
+import com.teamcs.database.DAO.impl.StatutDAOImpl;
 import com.teamcs.database.DAO.impl.UtilisateurDAOImpl;
+import com.teamcs.database.bean.Statut;
 import com.teamcs.database.bean.Utilisateur;
 import com.teamcs.exceptions.UtilisateurException;
 import com.teamcs.service.UtilisateurService;
@@ -19,9 +21,11 @@ import java.util.List;
 public class UtilisateurServiceImpl implements UtilisateurService {
 
     private UtilisateurDAOImpl userDAO;
+    private StatutDAOImpl statutDAO;
     
     public UtilisateurServiceImpl() {
         userDAO = new UtilisateurDAOImpl();
+        statutDAO = new StatutDAOImpl();
     }
     
     @Override
@@ -68,5 +72,23 @@ public class UtilisateurServiceImpl implements UtilisateurService {
         userDAO.openCurrentSessionwithTransaction();
         userDAO.deleteUtilisateur(utilisateur);
         userDAO.closeCurrentSessionwithTransaction();
+    }
+
+    @Override
+    public List<Statut> findAllStatuts() {
+        List<Statut> statuts = new ArrayList<Statut>();
+        statutDAO.openCurrentSessionwithTransaction();
+        statuts = statutDAO.getAllStatuts();
+        statutDAO.closeCurrentSessionwithTransaction();
+        return statuts;
+    }
+    
+    @Override
+    public Statut findOneStatutByLibelle(String libelle) {
+        Statut statut = new Statut();
+        statutDAO.openCurrentSessionwithTransaction();
+        statut = statutDAO.getStatutByName(libelle);
+        statutDAO.closeCurrentSessionwithTransaction();
+        return statut;
     }
 }

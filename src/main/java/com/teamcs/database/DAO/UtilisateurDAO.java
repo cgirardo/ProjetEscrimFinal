@@ -5,6 +5,7 @@
  */
 package com.teamcs.database.DAO;
 
+import com.teamcs.database.bean.Statut;
 import com.teamcs.database.bean.Utilisateur;
 import java.util.List;
 

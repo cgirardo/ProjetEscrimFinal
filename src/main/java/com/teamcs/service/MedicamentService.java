@@ -26,4 +26,6 @@ public interface MedicamentService {
     void updateMedicament(Medicament medicament);
     
     List<Classetherapeutique> findAllClasses();
+    
+    Classetherapeutique findOneClasse(String libelle);
 }
