@@ -17,6 +17,7 @@ public class ConnexionApp extends Application {
         stage.setTitle("SDIS30 - ESCRIM");
         NavigationController.setMainStage(stage);
         stage.setScene(createScene(loadMainPane()));
+        stage.setResizable(false);
         stage.show();
     }
     
@@ -34,7 +35,6 @@ public class ConnexionApp extends Application {
     
     private Scene createScene(Pane mainPane) {
         Scene scene = new Scene(mainPane);
-//        scene.getStylesheets().setAll(getClass().getResource(NavigationController.STYLE_CONNEXION).toExternalForm());
         return scene;
     }
     

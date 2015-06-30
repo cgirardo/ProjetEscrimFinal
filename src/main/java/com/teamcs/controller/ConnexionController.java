@@ -30,7 +30,7 @@ public class ConnexionController implements Initializable {
     private void connexionButtonAction(ActionEvent event) {
         String login = identifiant.getText();
         String pcw = mdp.getText();
-        String statut = "";
+        String statut = ""; 
         try {
             statut = service.connectUtilisateur(login, pcw);         
             selectView(statut);
@@ -47,21 +47,26 @@ public class ConnexionController implements Initializable {
             case "Logisticien":
                 NavigationController.loadMenu(NavigationController.MENU_LOG);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
+                NavigationController.getMainStage().getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
                 break;
             case "Pharmacien":
                 NavigationController.loadMenu(NavigationController.MENU_PHA);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
+                NavigationController.getMainStage().getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_PHARMACIEN).toExternalForm());
                 break;
             case "Medecin":
                 NavigationController.loadMenu(NavigationController.MENU_MED);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
+                NavigationController.getMainStage().getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_MEDECIN).toExternalForm());
                 break;
             case "Infirmier":
                 NavigationController.loadMenu(NavigationController.MENU_MED);
                 NavigationController.loadView(NavigationController.VIEW_ACCUEIL);
+                NavigationController.getMainStage().getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_MEDECIN).toExternalForm());
                 break;
             default:
                 NavigationController.loadView(NavigationController.VIEW_ERREUR);
+                NavigationController.getMainStage().getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_THEME).toExternalForm());
                 break;
         }
     }
@@ -76,5 +81,10 @@ public class ConnexionController implements Initializable {
     }
     
     @Override
-    public void initialize(URL url, ResourceBundle rb) {}    
+    public void initialize(URL url, ResourceBundle rb) {
+//        stage = NavigationController.getMainStage();
+//        NavigationController.loadView(NavigationController.VIEW_CONNEXION);
+//        NavigationController.getCurrentScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
+    }    
 }
+    

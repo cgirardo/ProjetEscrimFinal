@@ -9,7 +9,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.MenuController">
     <children>
-        <MenuBar fx:id="myMenuBar" layoutY="2.0" prefHeight="30.0" prefWidth="600.0">
+        <MenuBar fx:id="myMenuBar" layoutY="2.0" prefHeight="30.0" prefWidth="900.0">
             <menus>
                 <Menu mnemonicParsing="false" text="Profil">
                     <items>

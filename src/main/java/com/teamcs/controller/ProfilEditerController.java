@@ -80,7 +80,7 @@ public class ProfilEditerController {
             });
         primaryStage = NavigationController.getMainStage();
         primaryStage.setHeight(600.0);
-        primaryStage.setWidth(600.0);
+        primaryStage.setWidth(850.0);
     }
     
     public void getDataFromDatabase() {
