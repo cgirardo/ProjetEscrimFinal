@@ -3,16 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.teamcs.service;
+package com.teamcs.database.DAO;
 
-import com.teamcs.database.bean.Statut;
+import com.teamcs.database.bean.Classetherapeutique;
 import java.util.List;
 
 /**
  *
  * @author chris_000
  */
-public interface StatutService {
+public interface ClassetherapeutiqueDAO {
+    public List<Classetherapeutique> findAll();
     
-    List<Statut> findAll();
+    public Classetherapeutique findOne(String libelle);
 }

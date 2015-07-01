@@ -5,6 +5,7 @@
  */
 package com.teamcs.service;
 
+import com.teamcs.database.bean.Classetherapeutique;
 import com.teamcs.database.bean.Medicament;
 import java.util.List;
 
@@ -18,9 +19,13 @@ public interface MedicamentService {
     
     List<Medicament> findAllMedicament();
     
-    void deleteMedicamentById(int id);
+    void deleteMedicament(Medicament medicament);
     
     Medicament findByName(String name);
     
     void updateMedicament(Medicament medicament);
+    
+    List<Classetherapeutique> findAllClasses();
+    
+    Classetherapeutique findOneClasse(String libelle);
 }

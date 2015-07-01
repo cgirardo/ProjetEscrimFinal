@@ -26,7 +26,11 @@
                 <Menu mnemonicParsing="false" text="Caisses">
                     <items>
                         <MenuItem mnemonicParsing="false" onAction="#itemCaissesConsulterAction" text="Consulter" />
-                        <MenuItem mnemonicParsing="false" onAction="#itemCaissesVerifierAction" text="Vérifier stock" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Matériel">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#itemMaterielConsulterAction" text="Consulter" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Missions">

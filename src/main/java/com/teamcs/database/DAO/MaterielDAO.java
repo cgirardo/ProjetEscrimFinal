@@ -5,16 +5,19 @@
  */
 package com.teamcs.database.DAO;
 
-import com.teamcs.database.bean.Statut;
+import com.teamcs.database.bean.Materiel;
 import java.util.List;
 
 /**
  *
  * @author chris_000
  */
-public interface StatutDAO {
+public interface MaterielDAO {
+    void saveMateriel(Materiel materiel);
     
-    List<Statut> getAllStatuts();
+    List<Materiel> findAllMateriel();
     
-    Statut getStatutByName(String statut);
+    void deleteMateriel(Materiel materiel);
+    
+    void updateMateriel(Materiel materiel);
 }

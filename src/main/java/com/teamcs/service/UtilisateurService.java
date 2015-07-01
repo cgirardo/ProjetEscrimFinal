@@ -5,6 +5,7 @@
  */
 package com.teamcs.service;
 
+import com.teamcs.database.bean.Statut;
 import com.teamcs.database.bean.Utilisateur;
 import com.teamcs.exceptions.UtilisateurException;
 import java.util.List;
@@ -24,4 +25,8 @@ public interface UtilisateurService {
     void updateUtilisateur(Utilisateur utilisateur);
     
     void deleteUtilisateur(Utilisateur utilisateur);
+    
+    List<Statut> findAllStatuts();
+    
+    Statut findOneStatutByLibelle(String libelle);
 }

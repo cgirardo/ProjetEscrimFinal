@@ -31,10 +31,8 @@ public class MedicamentDAOImpl extends AbstractDAO implements MedicamentDAO {
     }
 
     @Override
-    public void deleteMedicamentById(int id) {
-        Query query = getCurrentSession().createSQLQuery("delete from Medicament where IdMedicament = :id");
-        query.setInteger("id", id);
-        query.executeUpdate();
+    public void deleteMedicament(Medicament medicament) {
+        getCurrentSession().delete(medicament);
     }
 
     @Override

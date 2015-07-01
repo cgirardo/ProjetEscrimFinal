@@ -27,7 +27,7 @@ import javafx.stage.Stage;
  *
  * @author chris_000
  */
-public class ProfilEditerController {
+public class UtilisateursConsulterController {
     
     Stage primaryStage;
     private UtilisateurService service;
@@ -53,10 +53,12 @@ public class ProfilEditerController {
     private Label cityLabel;
     @FXML
     private Label mailLabel;
+    @FXML
+    private Label statutLabel;
     
 //    private MenuController controller;
     
-    public ProfilEditerController() {
+    public UtilisateursConsulterController() {
         
     }
     /**
@@ -102,6 +104,7 @@ public class ProfilEditerController {
             streetLabel.setText(user.getRue());
             postalCodeLabel.setText(user.getCodePostal());
             cityLabel.setText(user.getVille());
+            statutLabel.setText(user.getStatut().getLibelleStatut());
             utilisateur = user;
         } else {
             firstNameLabel.setText("");
@@ -110,6 +113,7 @@ public class ProfilEditerController {
             streetLabel.setText("");
             postalCodeLabel.setText("");
             cityLabel.setText("");
+            statutLabel.setText("");
         }
     }
     
@@ -125,17 +129,17 @@ public class ProfilEditerController {
     private boolean showPersonNewDialog(Utilisateur tempPerson) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ProfilEditerController.class.getResource("/fxml/view/UtilisateurNouveau.fxml"));
+            loader.setLocation(UtilisateursConsulterController.class.getResource("/fxml/view/UtilisateursNouveau.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("New Person");
+            dialogStage.setTitle("Nouvel utilisateur");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             
-            UtilisateurNouveauController controller = loader.getController();
+            UtilisateursNouveauController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             
             dialogStage.showAndWait();
@@ -150,17 +154,17 @@ public class ProfilEditerController {
     private boolean showPersonEditDialog(Utilisateur tempPerson) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(ProfilEditerController.class.getResource("/fxml/view/UtilisateurEditer.fxml"));
+            loader.setLocation(UtilisateursConsulterController.class.getResource("/fxml/view/UtilisateursEditer.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Person");
+            dialogStage.setTitle("Editer utilisateur");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
             
-            EditerUtilisateurController controller = loader.getController();
+            UtilisateursEditerController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setPerson(utilisateur);
             
@@ -190,6 +194,7 @@ public class ProfilEditerController {
             alert.setHeaderText("Aucun profil n'est selectionné");
             alert.setContentText("Veuillez selectionner un profil.");
             alert.getDialogPane().getStyleClass().add("myDialogs");  
+
             alert.showAndWait();
         }
     }
@@ -204,9 +209,9 @@ public class ProfilEditerController {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(NavigationController.getMainStage());
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Person Selected");
-            alert.setContentText("Please select a person in the table.");
+            alert.setTitle("Aucune Selection");
+            alert.setHeaderText("Aucun utilisateur sélectionné");
+            alert.setContentText("Veuillez sélectionner un utilisteur dans la table");
             
             alert.showAndWait();
         }
