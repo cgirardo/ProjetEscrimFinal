@@ -6,17 +6,23 @@ package com.teamcs.controller;
  * and open the template in the editor.
  */
 
+import com.teamcs.app.ConnexionApp;
+import com.teamcs.controller.common.MainController;
 import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Utilisateur;
 import java.net.URL;
+import java.io.IOException;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.MenuBar;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**

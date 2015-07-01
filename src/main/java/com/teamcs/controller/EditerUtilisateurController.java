@@ -150,10 +150,10 @@ public class EditerUtilisateurController implements Initializable {
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs invalides");
+            alert.setHeaderText("Veuillez selectionnez des champs valides");
             alert.setContentText(errorMessage);
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs.css");
             alert.showAndWait();
             
             return false;

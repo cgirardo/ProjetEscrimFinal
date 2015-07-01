@@ -5,6 +5,7 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Statut;
 import com.teamcs.database.bean.Utilisateur;
 import com.teamcs.service.StatutService;
@@ -150,12 +151,12 @@ public class UtilisateurNouveauController implements Initializable {
             return true;
         } else {
             // Show the error message.
-            Alert alert = new Alert(Alert.AlertType.ERROR);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs invalides");
+            alert.setHeaderText("Veuillez renseigner les champs invalides");
             alert.setContentText(errorMessage);
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             
             return false;

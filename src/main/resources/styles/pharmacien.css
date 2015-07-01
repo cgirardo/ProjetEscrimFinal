@@ -11,6 +11,14 @@ and open the template in the editor.
     -fx-background-color: #1d1d1d;
 }
 
+.myDialogs{
+    -fx-background-color: #1d1d1d;
+}
+
+.myDialogs:header *.header-panel{
+    -fx-background-color: #1d1d1d;
+}
+
 #accueil{
 	-fx-background-image: url("../images/pharmacien.jpg");
     -fx-background-repeat: stretch;   
