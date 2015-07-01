@@ -111,37 +111,37 @@ public class UtilisateursNouveauController implements Initializable {
         String errorMessage = "";
 
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
-            errorMessage += "No valid first name!\n"; 
+            errorMessage += "Invalide prenom!\n"; 
         }
         if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
-            errorMessage += "No valid last name!\n"; 
+            errorMessage += "Invalide nom!\n"; 
         }
         if (streetField.getText() == null || streetField.getText().length() == 0) {
-            errorMessage += "No valid street!\n"; 
+            errorMessage += "Invalide rue!\n"; 
         }
 
         if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
-            errorMessage += "No valid postal code!\n"; 
+            errorMessage += "Invalide postal code!\n"; 
         }
 
         if (cityField.getText() == null || cityField.getText().length() == 0) {
-            errorMessage += "No valid city!\n"; 
+            errorMessage += "Invalide ville!\n"; 
         }
 
         if (mailField.getText() == null || mailField.getText().length() == 0) {
-            errorMessage += "No valid mail!\n";
+            errorMessage += "Invalide mail!\n";
         }
         
         if (mdpField.getText() == null || mdpField.getText().length() == 0) {
-            errorMessage += "No valid mdp!\n";
+            errorMessage += "Invalide mdp!\n";
         }
         
         if (identifiantField.getText() == null || identifiantField.getText().length() == 0) {
-            errorMessage += "No valid identifiant!\n";
+            errorMessage += "Invalide identifiant!\n";
         }
         
         if (statutComboBox.getItems() == null || statutComboBox.getItems().size() == 0) {
-            errorMessage += "No valid statut!\n";
+            errorMessage += "Invalide statut!\n";
         }
 
         if (errorMessage.length() == 0) {

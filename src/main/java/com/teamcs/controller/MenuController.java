@@ -46,6 +46,8 @@ public class MenuController implements Initializable {
     @FXML
     public void itemProfilEditerAction(ActionEvent event) {  
         NavigationController.loadView(NavigationController.VIEW_PROFIL_EDITER);
+        primaryStage.setHeight(500.0);
+        primaryStage.setWidth(900.0);
     }
 
     @FXML
@@ -70,11 +72,15 @@ public class MenuController implements Initializable {
     @FXML
     private void itemCaissesConsulterAction(ActionEvent event) {
         NavigationController.loadView(NavigationController.VIEW_CAISSES_CONSULTER);
+        primaryStage.setHeight(500.0);
+        primaryStage.setWidth(900.0);
     }
     
     @FXML
     private void itemMaterielConsulterAction(ActionEvent event) {
         NavigationController.loadView(NavigationController.VIEW_MATERIELS_CONSULTER);
+        primaryStage.setHeight(500.0);
+        primaryStage.setWidth(900.0);
     }
     
     @FXML
@@ -89,6 +95,8 @@ public class MenuController implements Initializable {
     @FXML
     private void itemMedicamentsConsulterAction(ActionEvent event) {
         NavigationController.loadView(NavigationController.VIEW_MEDICAMENTS_CONSULTER);
+        primaryStage.setHeight(500.0);
+        primaryStage.setWidth(900.0);
     }
     
     /**
@@ -106,7 +114,7 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         primaryStage = NavigationController.getMainStage();
-        primaryStage.setHeight(300.0);
-        primaryStage.setWidth(300.0);
+        primaryStage.setHeight(400.0);
+        primaryStage.setWidth(400.0);
     }   
 }

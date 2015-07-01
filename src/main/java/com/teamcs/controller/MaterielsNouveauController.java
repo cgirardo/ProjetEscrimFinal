@@ -83,7 +83,7 @@ public class MaterielsNouveauController implements Initializable {
         String errorMessage = "";
 
         if (libelleField.getText() == null || libelleField.getText().length() == 0) {
-            errorMessage += "No valid libelle!\n"; 
+            errorMessage += "Invalide libelle!\n"; 
         }
 
         if (errorMessage.length() == 0) {
@@ -95,7 +95,7 @@ public class MaterielsNouveauController implements Initializable {
             alert.setTitle("Invalid Fields");
             alert.setHeaderText("Please correct invalid fields");
             alert.setContentText(errorMessage);
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");   
             alert.showAndWait();
             
             return false;

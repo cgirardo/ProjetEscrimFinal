@@ -22,7 +22,7 @@ and open the template in the editor.
 #accueil{
 	-fx-background-image: url("../images/pharmacien.jpg");
     -fx-background-repeat: stretch;   
-    -fx-background-size: 324.0 312.0;
+    -fx-background-size: 424.0 412.0;
     -fx-background-position: 0% 0%;
 }
 
