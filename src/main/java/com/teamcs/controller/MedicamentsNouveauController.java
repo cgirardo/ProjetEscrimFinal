@@ -7,8 +7,11 @@ package com.teamcs.controller;
 
 import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Classetherapeutique;
+import com.teamcs.database.bean.Contenu;
 import com.teamcs.database.bean.Medicament;
+import com.teamcs.service.ContenuService;
 import com.teamcs.service.MedicamentService;
+import com.teamcs.service.impl.ContenuServiceImpl;
 import com.teamcs.service.impl.MedicamentServiceImpl;
 import com.teamcs.util.DateUtil;
 import java.net.URL;
@@ -41,10 +44,12 @@ public class MedicamentsNouveauController implements Initializable {
     @FXML
     private TextField dosageField;
     
-    MedicamentService service = new MedicamentServiceImpl();
+    MedicamentService serviceMedicament = new MedicamentServiceImpl();
+    ContenuService serviceContenu = new ContenuServiceImpl();
 
     private Stage dialogStage;
     private Medicament medoc;
+    private Contenu contenu;
     private boolean okClicked = false;
     
     /**
@@ -73,15 +78,19 @@ public class MedicamentsNouveauController implements Initializable {
         if (isInputValid()) {
             medoc = new Medicament();
             medoc.setLibelleMedicament(libelleField.getText());
-            medoc.setClassetherapeutique(service.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
+            medoc.setClassetherapeutique(serviceMedicament.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
             medoc.setDci(dciField.getText());
             medoc.setDlu(DateUtil.parse(dluNameField.getText()));
             medoc.setLot(lotNameField.getText());
             medoc.setDotationU7(Integer.parseInt(dotationField.getText()));
             medoc.setFormeDosage(dosageField.getText());
 
+            contenu = new Contenu();
+            contenu.setLibelleContenu(libelleField.getText());
+            
             okClicked = true;
-            service.saveMedicament(medoc);
+            serviceMedicament.saveMedicament(medoc);
+            serviceContenu.saveContenu(contenu);
             
             dialogStage.close();
         }
@@ -147,7 +156,7 @@ public class MedicamentsNouveauController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        for(Classetherapeutique classe : service.findAllClasses()) {
+        for(Classetherapeutique classe : serviceMedicament.findAllClasses()) {
             classeComboBox.getItems().add(classe.getLibelleClasseTherapeutique());
         }
     }

@@ -24,7 +24,7 @@
             <column name="FormeDosage" length="50" not-null="true" />
         </property>
         <property name="lot" type="string">
-            <column name="Lot" not-null="true" />
+            <column name="Lot" length="20" not-null="true" />
         </property>
         <property name="dotationU7" type="int">
             <column name="DotationU7" not-null="true" />

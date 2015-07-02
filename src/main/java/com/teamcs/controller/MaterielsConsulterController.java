@@ -89,6 +89,7 @@ public class MaterielsConsulterController {
         boolean okClicked = showMatNewDialog(tempMat);
         if (okClicked) {
             materielData.add(tempMat);
+            initialize();
         }
     }
     

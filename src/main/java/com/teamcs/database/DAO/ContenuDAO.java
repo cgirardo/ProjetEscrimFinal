@@ -5,22 +5,19 @@
  */
 package com.teamcs.database.DAO;
 
-import com.teamcs.database.bean.Aeronef;
+import com.teamcs.database.bean.Contenu;
 import java.util.List;
 
 /**
  *
  * @author chris_000
  */
-public interface AeronefDAO {
+public interface ContenuDAO {
+    void saveContenu(Contenu contenu);
     
-    void saveAeronef(Aeronef aeronef);
+    List<Contenu> findAllContenu();
     
-    List<Aeronef> findAllAeronef();
+    void deleteContenu(int id);
     
-    void deleteAeronef(Aeronef aeronef);
-    
-    Aeronef findByName(String name);
-    
-    void updateAeronef(Aeronef aeronef);
+    void updateContenu(Contenu medicament);
 }

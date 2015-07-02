@@ -6,11 +6,17 @@
 package com.teamcs.controller;
 
 import com.teamcs.controller.common.NavigationController;
-import com.teamcs.database.bean.Classetherapeutique;
+import com.teamcs.database.bean.Caisse;
 import com.teamcs.database.bean.Medicament;
+import com.teamcs.service.CaisseService;
+import com.teamcs.service.ContenuService;
 import com.teamcs.service.MedicamentService;
+import com.teamcs.service.impl.CaisseServiceImpl;
+import com.teamcs.service.impl.ContenuServiceImpl;
 import com.teamcs.service.impl.MedicamentServiceImpl;
 import com.teamcs.util.DateUtil;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -43,13 +49,16 @@ public class MedicamentsConsulterController {
     @FXML Label dosageLabel;
     @FXML Label lotLabel;
     @FXML Label dotationLabel;
+    @FXML Label caisseLabel;
     
     @FXML private TableView<Medicament> medocTable;
     @FXML private TableColumn<Medicament, String> libelleColumn;
     @FXML private TableColumn<Medicament, String> classeColumn;
     
     private Medicament medicament;
-    private MedicamentService service;
+    private MedicamentService serviceMedicament;
+    private ContenuService serviceContenu;
+    private CaisseService serviceCaisse;
     private ObservableList<Medicament> medocData;
     Stage primaryStage;
     
@@ -57,7 +66,9 @@ public class MedicamentsConsulterController {
     
     @FXML
     public void initialize() {
-        service = new MedicamentServiceImpl();
+        serviceMedicament = new MedicamentServiceImpl();
+        serviceContenu = new ContenuServiceImpl();
+        serviceCaisse = new CaisseServiceImpl();
         getDataFromDatabase();
         medocTable.setItems(medocData);
         libelleColumn.setCellValueFactory(new PropertyValueFactory<Medicament, String>("libelleMedicament"));
@@ -78,7 +89,7 @@ public class MedicamentsConsulterController {
     
     public void getDataFromDatabase() {
         medocData = FXCollections.observableArrayList();
-        medocData.addAll(service.findAllMedicament());
+        medocData.addAll(serviceMedicament.findAllMedicament());
     }
     
     private void showMedocDetails(Medicament medoc) {
@@ -90,6 +101,7 @@ public class MedicamentsConsulterController {
             dosageLabel.setText(medoc.getFormeDosage());
             lotLabel.setText(medoc.getLot());
             dotationLabel.setText(Integer.toString(medoc.getDotationU7()));
+//            caisseLabel.setText(Integer.toString(medoc.))
             medicament = medoc;
         } else {
             libelleLabel.setText("");
@@ -99,6 +111,7 @@ public class MedicamentsConsulterController {
             dosageLabel.setText("");
             lotLabel.setText("");
             dotationLabel.setText("");
+            caisseLabel.setText("");
         }
     }
     
@@ -189,7 +202,8 @@ public class MedicamentsConsulterController {
         Medicament selectedMedoc = medocTable.getSelectionModel().getSelectedItem();
         if (selectedIndex >= 0) {
             medocTable.getItems().remove(selectedIndex);
-            service.deleteMedicament(selectedMedoc);
+            serviceMedicament.deleteMedicament(selectedMedoc);
+//            serviceContenu.deleteContenu(selectedMedoc.getIdMedicament());
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
