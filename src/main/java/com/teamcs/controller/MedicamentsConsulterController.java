@@ -16,6 +16,7 @@ import com.teamcs.service.impl.ContenuServiceImpl;
 import com.teamcs.service.impl.MedicamentServiceImpl;
 import com.teamcs.util.DateUtil;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -50,6 +51,7 @@ public class MedicamentsConsulterController {
     @FXML Label lotLabel;
     @FXML Label dotationLabel;
     @FXML Label caisseLabel;
+    @FXML Label dluAlert;
     
     @FXML private TableView<Medicament> medocTable;
     @FXML private TableColumn<Medicament, String> libelleColumn;
