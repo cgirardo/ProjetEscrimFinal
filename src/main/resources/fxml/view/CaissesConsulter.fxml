@@ -54,38 +54,47 @@
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                             </rowConstraints>
                                             <children>
                                                 <Label text="Numéro" />
                                                 <Label text="Type" GridPane.rowIndex="1" />
-                                                <Label text="Geolocalisation" GridPane.rowIndex="2" />
-                                                <Label text="Affectataire" GridPane.rowIndex="3" />
-                                                <Label text="Module" GridPane.rowIndex="4" />
-                                                <Label text="Nominal" GridPane.rowIndex="5" />
-                                                <Label text="Observation" GridPane.rowIndex="6" />
-                                                <Label text="Precisions" GridPane.rowIndex="7" />
-                                                <Label text="Valeur" GridPane.rowIndex="8" />
-                                                <Label text="Iata" GridPane.rowIndex="9" />
-                                                <Label text="Projection" GridPane.rowIndex="10" />
-                                                <Label text="Designation" GridPane.rowIndex="11" />
-                                                <Label text="Secteur" GridPane.rowIndex="12" />
+                                                <Label text="Latitude" GridPane.rowIndex="2" />
+                                                <Label text="Longitude" GridPane.rowIndex="3" />
+                                                <Label text="Affectataire" GridPane.rowIndex="4" />
+                                                <Label text="Module" GridPane.rowIndex="5" />
+                                                <Label text="Nominal" GridPane.rowIndex="6" />
+                                                <Label text="Observation" GridPane.rowIndex="7" />
+                                                <Label text="Precisions" GridPane.rowIndex="8" />
+                                                <Label text="Valeur" GridPane.rowIndex="9" />
+                                                <Label text="Iata" GridPane.rowIndex="10" />
+                                                <Label text="Projection" GridPane.rowIndex="11" />
+                                                <Label text="Designation" GridPane.rowIndex="12" />
+                                                <Label text="Secteur" GridPane.rowIndex="13" />
                         
                                                 <Label fx:id="numeroLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" />
                                                 <Label fx:id="typeLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                <Label fx:id="geolocLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                                <Label fx:id="affectLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                                <Label fx:id="moduleLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                                <Label fx:id="nominalLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                                <Label fx:id="observationLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                                <Label fx:id="precisionsLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
-                                                <Label fx:id="valeurLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
-                                                <Label fx:id="iataLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
-                                                <Label fx:id="projectionLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
-                                                <Label fx:id="designationLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
-                                                <Label fx:id="secteurLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                                <Label fx:id="latLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label fx:id="longLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                <Label fx:id="affectLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                                <Label fx:id="moduleLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                <Label fx:id="nominalLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                                <Label fx:id="observationLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                                <Label fx:id="precisionsLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                                <Label fx:id="valeurLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                                                <Label fx:id="iataLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                                                <Label fx:id="projectionLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+                                                <Label fx:id="designationLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+                                                <Label fx:id="secteurLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="13" />
                                             </children>
                                         </GridPane>
-                  
+                  <ButtonBar layoutX="130.0" layoutY="314.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="288.0">
+                    <buttons>
+                      <Button mnemonicParsing="false" onAction="#handleNewCaisse" text="New..." />
+                        <Button mnemonicParsing="false" onAction="#handleEditCaisse" text="Edit..." />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteCaisse" prefHeight="33.0" prefWidth="120.0" text="Delete" />
+                    </buttons>
+                  </ButtonBar>
                   
                                     </children>
                                 </AnchorPane>

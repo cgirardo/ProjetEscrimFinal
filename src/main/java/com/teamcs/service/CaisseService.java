@@ -18,7 +18,7 @@ public interface CaisseService {
     
     List<Caisse> findAllCaisse();
     
-    void deleteCaisseById(int id);
+    void deleteCaisse(Caisse caisse);
     
     Caisse findById(int id);
     

@@ -40,9 +40,9 @@ public class CaisseServiceImpl implements CaisseService {
     }
 
     @Override
-    public void deleteCaisseById(int id) {
+    public void deleteCaisse(Caisse caisse) {
         dao.openCurrentSessionwithTransaction();
-        dao.deleteCaisseById(id);
+        dao.deleteCaisse(caisse);
         dao.closeCurrentSessionwithTransaction();
     }
 
