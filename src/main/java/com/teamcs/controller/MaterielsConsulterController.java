@@ -29,6 +29,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.jboss.logging.Logger;
 
 /**
  * FXML Controller class
@@ -36,6 +37,8 @@ import javafx.stage.Stage;
  * @author chris_000
  */
 public class MaterielsConsulterController {
+    
+    private static Logger logger = Logger.getLogger(MaterielsConsulterController.class);
     
     @FXML Label libelleLabel;
     
@@ -113,7 +116,7 @@ public class MaterielsConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de la Dialog !");
             return false;
         }
     }
@@ -160,7 +163,7 @@ public class MaterielsConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de la Dialog !");
             return false;
         }
     }

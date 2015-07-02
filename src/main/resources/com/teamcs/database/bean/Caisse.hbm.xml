@@ -6,7 +6,7 @@
     <class name="com.teamcs.database.bean.Caisse" table="caisse" catalog="escrim" optimistic-lock="version">
         <id name="idCaisse" type="java.lang.Integer">
             <column name="IdCaisse" />
-            <generator class="identity" />
+            <generator class="native" />
         </id>
         <many-to-one name="designation" class="com.teamcs.database.bean.Designation" fetch="select">
             <column name="IdDesignation" not-null="true" />

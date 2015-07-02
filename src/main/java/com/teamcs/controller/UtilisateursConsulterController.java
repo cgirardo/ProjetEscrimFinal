@@ -21,6 +21,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.jboss.logging.Logger;
 
 /**
  * FXML Controller class
@@ -28,6 +29,8 @@ import javafx.stage.Stage;
  * @author chris_000
  */
 public class UtilisateursConsulterController {
+    
+    private static Logger logger = Logger.getLogger(UtilisateursConsulterController.class);
     
     Stage primaryStage;
     private UtilisateurService service;
@@ -146,7 +149,7 @@ public class UtilisateursConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de le Dialog !");
             return false;
         }
     }
@@ -172,7 +175,7 @@ public class UtilisateursConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de le Dialog !");
             return false;
         }
     }

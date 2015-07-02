@@ -11,12 +11,15 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import org.jboss.logging.Logger;
 
 /**
  *
  * @author chris_000
  */
 public class NavigationController {
+    
+    private static Logger logger = Logger.getLogger(NavigationController.class);
     
     private static Stage mainStage;
     private static Scene currentScene;
@@ -99,7 +102,7 @@ public class NavigationController {
         try {
             mainController.setMenu((Node) FXMLLoader.load(NavigationController.class.getResource(fxml)));
         } catch(IOException e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement du menu !");
         }
     }
     
@@ -108,7 +111,7 @@ public class NavigationController {
             mainController.setView((Node) FXMLLoader.load(NavigationController.class.getResource(fxml)));
             
         } catch(IOException e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de la vue !");
         }
     }
 }

@@ -26,12 +26,15 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.jboss.logging.Logger;
 
 /**
  *
  * @author chris_000
  */
 public class AvionsConsulterController {
+    
+    private static final Logger logger = Logger.getLogger(AvionsConsulterController.class);
     
     @FXML Label libelleLabel;
     @FXML Label poidsLabel;
@@ -144,7 +147,7 @@ public class AvionsConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de la Dialog !");
             return false;
         }
     }
@@ -191,7 +194,7 @@ public class AvionsConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de la Dialog !");
             return false;
         }
     }

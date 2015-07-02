@@ -34,6 +34,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import org.jboss.logging.Logger;
 
 
 /**
@@ -41,7 +42,7 @@ import javafx.stage.Stage;
  * @author chris_000
  */
 public class MedicamentsConsulterController {
-
+    private static Logger logger = Logger.getLogger(MedicamentsConsulterController.class);
     @FXML Label libelleLabel;
     @FXML Label classeLabel;
     @FXML Label dluLabel;
@@ -144,7 +145,7 @@ public class MedicamentsConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de la Dialog !");
             return false;
         }
     }
@@ -191,7 +192,7 @@ public class MedicamentsConsulterController {
             
             return controller.isOkClicked();
         } catch(Exception e) {
-            e.printStackTrace();
+            logger.fatal("Erreur lors du chargement de la Dialog !");
             return false;
         }
     }

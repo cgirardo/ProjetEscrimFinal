@@ -6,57 +6,57 @@
     <class name="com.teamcs.database.bean.Caisse" table="caisse" catalog="escrim" optimistic-lock="version">
         <id name="idCaisse" type="java.lang.Integer">
             <column name="IdCaisse" />
-            <generator class="identity" />
+            <!--<generator class="identity" />-->
         </id>
         <many-to-one name="designation" class="com.teamcs.database.bean.Designation" fetch="select">
-            <column name="IdDesignation" not-null="true" />
+            <column name="IdDesignation" />
         </many-to-one>
         <many-to-one name="geolocalisation" class="com.teamcs.database.bean.Geolocalisation" fetch="select">
-            <column name="IdGeolocalisation" not-null="true" />
+            <column name="IdGeolocalisation"  />
         </many-to-one>
         <many-to-one name="observation" class="com.teamcs.database.bean.Observation" fetch="select">
-            <column name="IdObservation" not-null="true" />
+            <column name="IdObservation"  />
         </many-to-one>
         <many-to-one name="secteur" class="com.teamcs.database.bean.Secteur" fetch="select">
-            <column name="IdSecteur" not-null="true" />
+            <column name="IdSecteur" />
         </many-to-one>
         <many-to-one name="typecaisse" class="com.teamcs.database.bean.Typecaisse" fetch="select">
-            <column name="IdTypeCaisse" not-null="true" />
+            <column name="IdTypeCaisse" />
         </many-to-one>
         <property name="affectataire" type="string">
-            <column name="Affectataire" length="14" not-null="true" />
+            <column name="Affectataire" length="14" />
         </property>
         <property name="module" type="string">
-            <column name="Module" length="20" not-null="true" />
+            <column name="Module" length="20" />
         </property>
         <property name="nominal" type="string">
-            <column name="Nominal" length="20" not-null="true">
+            <column name="Nominal" length="20" >
                 <comment>optionnel/pays froids etc</comment>
             </column>
         </property>
         <property name="precisionsColis" type="string">
-            <column name="PrecisionsColis" length="100" not-null="true" />
+            <column name="PrecisionsColis" length="100"  />
         </property>
         <property name="valeur" type="int">
-            <column name="Valeur" not-null="true" />
+            <column name="Valeur"  />
         </property>
         <property name="iata" type="int">
-            <column name="Iata" not-null="true" />
+            <column name="Iata"  />
         </property>
         <property name="projection" type="int">
-            <column name="Projection" not-null="true" />
+            <column name="Projection"  />
         </property>
         <set name="configurations" table="configurationcolis" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="IdColis" not-null="true" />
+                <column name="IdColis" />
             </key>
             <many-to-many entity-name="com.teamcs.database.bean.Configuration">
-                <column name="IdConfiguration" not-null="true" />
+                <column name="IdConfiguration"  />
             </many-to-many>
         </set>
         <set name="estcontenudanses" table="estcontenudans" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="IdCaisse" not-null="true" />
+                <column name="IdCaisse" />
             </key>
             <one-to-many class="com.teamcs.database.bean.Estcontenudans" />
         </set>

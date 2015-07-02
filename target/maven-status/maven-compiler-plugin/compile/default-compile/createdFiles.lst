@@ -51,6 +51,7 @@ com\teamcs\controller\UtilisateursNouveauController.class
 com\teamcs\database\DAO\impl\MedicamentDAOImpl.class
 com\teamcs\database\DAO\AbstractDAO.class
 com\teamcs\controller\common\MainController.class
+com\teamcs\controller\CaissesEditerController.class
 com\teamcs\controller\MenuController.class
 com\teamcs\controller\AccueilController.class
 com\teamcs\database\DAO\impl\ContenuDAOImpl.class
@@ -68,6 +69,7 @@ com\teamcs\controller\CaissesConsulterController.class
 com\teamcs\database\bean\Geolocalisation.class
 com\teamcs\controller\UtilisateursEditerController.class
 com\teamcs\database\bean\Typecaisse.class
+com\teamcs\controller\CaissesNouveauController.class
 com\teamcs\database\bean\ConfigurationcolisId.class
 com\teamcs\database\DAO\AeronefDAO.class
 com\teamcs\controller\MedicamentsNouveauController.class
