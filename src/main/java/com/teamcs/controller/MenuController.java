@@ -57,7 +57,9 @@ public class MenuController implements Initializable {
 
     @FXML
     public void itemMissionsConsulterAction(ActionEvent event) {
-        
+        NavigationController.loadView(NavigationController.VIEW_MISSIONS_CONSULTER);
+        primaryStage.setHeight(500.0);
+        primaryStage.setWidth(900.0);      
     }
     
     /**

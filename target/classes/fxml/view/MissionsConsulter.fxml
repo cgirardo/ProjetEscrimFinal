@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="missionsConsulter" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.MissionsConsulterController">
-    <children>
-        
-    </children>
+<AnchorPane fx:id="missionsConsulter" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.MissionsConsulterController">
+   <children>
+      <SplitPane prefHeight="600.0" prefWidth="900.0" styleClass="background" stylesheets="@../../styles/MainTheme.css">
+         <items>
+            <Label alignment="CENTER" prefHeight="21.0" prefWidth="851.0" text="Cette fonctionnalité n'est pas disponible.">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
+         </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
