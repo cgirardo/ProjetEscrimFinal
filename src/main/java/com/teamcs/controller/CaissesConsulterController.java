@@ -116,17 +116,17 @@ public class CaissesConsulterController {
     }
     
     @FXML
-    private void handleNewMed(ActionEvent event) {
+    private void handleNewCaisse(ActionEvent event) {
         
     }
     
     @FXML
-    private void handleEditMed(ActionEvent event) {
+    private void handleEditCaisse(ActionEvent event) {
         
     }
     
     @FXML
-    private void handleDeleteMed(ActionEvent event) {
+    private void handleDeleteCaisse(ActionEvent event) {
         
     }
 }

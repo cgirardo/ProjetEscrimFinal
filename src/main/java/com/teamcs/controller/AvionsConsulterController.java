@@ -199,10 +199,10 @@ public class AvionsConsulterController {
     @FXML
     private void handleDeleteAeronef(ActionEvent event) {
         int selectedIndex = aeronefTable.getSelectionModel().getSelectedIndex();
-        Aeronef selectedPerson = aeronefTable.getSelectionModel().getSelectedItem();
+        Aeronef selectedAeronef = aeronefTable.getSelectionModel().getSelectedItem();
         if (selectedIndex >= 0) {
             aeronefTable.getItems().remove(selectedIndex);
-            service.deleteAeronef(aeronef);
+            service.deleteAeronef(selectedAeronef);
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);

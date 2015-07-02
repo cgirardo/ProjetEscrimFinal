@@ -65,6 +65,7 @@ public class AvionsNouveauController implements Initializable {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
+            aeronef = new Aeronef();
             aeronef.setLibelleAeronef(libelleField.getText());
             aeronef.setPoidsMax(Integer.parseInt(poidsField.getText()));
             aeronef.setDimensionPorte(dimPorteField.getText());

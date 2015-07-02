@@ -17,7 +17,11 @@ import org.hibernate.criterion.Restrictions;
  * @author chris_000
  */
 public class AeronefDAOImpl extends AbstractDAO implements AeronefDAO {
-
+    
+    public AeronefDAOImpl() {
+        
+    }
+    
     @Override
     public void saveAeronef(Aeronef aeronef) {
         getCurrentSession().persist(aeronef);
