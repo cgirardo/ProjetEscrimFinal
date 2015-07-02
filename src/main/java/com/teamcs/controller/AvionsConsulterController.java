@@ -165,7 +165,7 @@ public class AvionsConsulterController {
             alert.setTitle("Aucune Selection");
             alert.setHeaderText("Aucun aéronef sélectionné");
             alert.setContentText("Veuillez sélectionner un aéronef dans la table");
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
         }
     }
@@ -210,7 +210,7 @@ public class AvionsConsulterController {
             alert.setTitle("Aucune Selection");
             alert.setHeaderText("Aucun aéronef sélectionné");
             alert.setContentText("Veuillez sélectionner un aéronef dans la table");
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
         }
     }

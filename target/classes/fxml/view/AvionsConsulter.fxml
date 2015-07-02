@@ -72,9 +72,9 @@
                   </GridPane>
                   <ButtonBar layoutX="14.0" layoutY="314.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="78.0">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#handleNewAeronef" text="New..." />
-                        <Button mnemonicParsing="false" onAction="#handleEditAeronef" text="Edit..." />
-                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteAeronef" prefHeight="33.0" prefWidth="120.0" text="Delete" />
+                      <Button mnemonicParsing="false" onAction="#handleNewAeronef" text="Nouveau" />
+                        <Button mnemonicParsing="false" onAction="#handleEditAeronef" text="Modifier" />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteAeronef" prefHeight="33.0" prefWidth="120.0" text="Supprimer" />
                     </buttons>
                   </ButtonBar>
                </children>
