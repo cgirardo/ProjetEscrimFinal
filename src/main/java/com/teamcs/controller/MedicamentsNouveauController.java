@@ -5,6 +5,7 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Classetherapeutique;
 import com.teamcs.database.bean.Medicament;
 import com.teamcs.service.MedicamentService;
@@ -133,6 +134,7 @@ public class MedicamentsNouveauController implements Initializable {
             alert.setTitle("Champs invalides");
             alert.setHeaderText("Veuillez entrer des champs valides");
             alert.setContentText(errorMessage);
+            dialogStage.getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
             alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             

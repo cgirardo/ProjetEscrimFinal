@@ -153,6 +153,7 @@ public class UtilisateursNouveauController implements Initializable {
             alert.setTitle("Champs invalides");
             alert.setHeaderText("Veuillez renseigner les champs invalides");
             alert.setContentText(errorMessage);
+            dialogStage.getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
             alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             
