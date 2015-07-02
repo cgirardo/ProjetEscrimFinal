@@ -23,11 +23,11 @@
         <property name="formeDosage" type="string">
             <column name="FormeDosage" length="50" not-null="true" />
         </property>
-        <property name="lot" type="int">
-            <column name="Lot" not-null="true" />
+        <property name="lot" type="string">
+            <column name="Lot" length="20" not-null="false" />
         </property>
         <property name="dotationU7" type="int">
-            <column name="DotationU7" not-null="true" />
+            <column name="DotationU7" not-null="false" />
         </property>
     </class>
 </hibernate-mapping>

@@ -75,7 +75,9 @@ public class MedicamentsNouveauController implements Initializable {
             medoc.setClassetherapeutique(service.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
             medoc.setDci(dciField.getText());
             medoc.setDlu(DateUtil.parse(dluNameField.getText()));
-            medoc.setLot(Integer.parseInt(lotNameField.getText()));
+            if(lotNameField.getText() != null || lotNameField.getText().length() > 0)
+                medoc.setLot(lotNameField.getText());
+//            if(dotationField.getText() != null || dotationField.getText().equals("") || dotationField.getText().length() > 0 || !dotationField.getText().isEmpty())
             medoc.setDotationU7(Integer.parseInt(dotationField.getText()));
             medoc.setFormeDosage(dosageField.getText());
 
@@ -110,14 +112,6 @@ public class MedicamentsNouveauController implements Initializable {
         }
         if (dluNameField.getText() == null || dluNameField.getText().length() == 0) {
             errorMessage += "No valid dlu!\n"; 
-        }
-
-        if (lotNameField.getText() == null || lotNameField.getText().length() == 0) {
-            errorMessage += "No valid lot!\n"; 
-        }
-
-        if (dotationField.getText() == null || dotationField.getText().length() == 0) {
-            errorMessage += "No valid dotation!\n"; 
         }
 
         if (dosageField.getText() == null || dosageField.getText().length() == 0) {

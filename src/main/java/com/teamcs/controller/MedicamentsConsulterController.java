@@ -11,6 +11,9 @@ import com.teamcs.database.bean.Medicament;
 import com.teamcs.service.MedicamentService;
 import com.teamcs.service.impl.MedicamentServiceImpl;
 import com.teamcs.util.DateUtil;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -43,6 +46,7 @@ public class MedicamentsConsulterController {
     @FXML Label dosageLabel;
     @FXML Label lotLabel;
     @FXML Label dotationLabel;
+    @FXML Label dluAlert;
     
     @FXML private TableView<Medicament> medocTable;
     @FXML private TableColumn<Medicament, String> libelleColumn;
@@ -86,9 +90,19 @@ public class MedicamentsConsulterController {
             libelleLabel.setText(medoc.getLibelleMedicament());
             classeLabel.setText(medoc.getClassetherapeutique().getLibelleClasseTherapeutique());
             dluLabel.setText(DateUtil.format(medoc.getDlu()));
+            Date datetoday = new Date();
+            System.out.println(dluAlert);
+            System.out.println(DateUtil.format(datetoday).compareTo(DateUtil.format(medoc.getDlu())));
+            dluLabel.getStyleClass().remove("color-red");
+            dluAlert.getStyleClass().remove("color-red");
+            dluAlert.setVisible(false);
+            if(DateUtil.format(datetoday).compareTo(DateUtil.format(medoc.getDlu())) > 0){
+                dluLabel.getStyleClass().add("color-red");
+                dluAlert.getStyleClass().add("color-red");
+                dluAlert.setVisible(true);}
             dciLabel.setText(medoc.getDci());
             dosageLabel.setText(medoc.getFormeDosage());
-            lotLabel.setText(Integer.toString(medoc.getLot()));
+            lotLabel.setText(medoc.getLot());
             dotationLabel.setText(Integer.toString(medoc.getDotationU7()));
             medicament = medoc;
         } else {
