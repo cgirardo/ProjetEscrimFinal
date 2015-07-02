@@ -24,12 +24,9 @@ public class ConnexionApp extends Application {
     private Pane loadMainPane() throws IOException {
         FXMLLoader loader = new FXMLLoader();
         Pane mainPane = (Pane) loader.load(getClass().getResourceAsStream(NavigationController.VIEW_MAIN));
-        
-        MainController mainController = loader.getController();
-        
+        MainController mainController = loader.getController();       
         NavigationController.setMainController(mainController);
-        NavigationController.loadView(NavigationController.VIEW_CONNEXION);
-        
+        NavigationController.loadView(NavigationController.VIEW_CONNEXION);       
         return mainPane;
     }
     

@@ -5,6 +5,7 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Classetherapeutique;
 import com.teamcs.database.bean.Contenu;
 import com.teamcs.database.bean.Medicament;
@@ -112,25 +113,25 @@ public class MedicamentsNouveauController implements Initializable {
         String errorMessage = "";
 
         if (libelleField.getText() == null || libelleField.getText().length() == 0) {
-            errorMessage += "No valid libelle!\n"; 
+            errorMessage += "Invalide libelle!\n"; 
         }
         if (dciField.getText() == null || dciField.getText().length() == 0) {
-            errorMessage += "No valid dci!\n"; 
+            errorMessage += "Invalide DCI!\n"; 
         }
         if (dluNameField.getText() == null || dluNameField.getText().length() == 0) {
-            errorMessage += "No valid dlu!\n"; 
+            errorMessage += "Invalide DLU!\n"; 
         }
 
         if (lotNameField.getText() == null || lotNameField.getText().length() == 0) {
-            errorMessage += "No valid lot!\n"; 
+            errorMessage += "Invalide Lot!\n"; 
         }
 
         if (dotationField.getText() == null || dotationField.getText().length() == 0) {
-            errorMessage += "No valid dotation!\n"; 
+            errorMessage += "Invalide dotation!\n"; 
         }
 
         if (dosageField.getText() == null || dosageField.getText().length() == 0) {
-            errorMessage += "No valid dosage!\n";
+            errorMessage += "Invalide dosage!\n";
         }
 
         if (errorMessage.length() == 0) {
@@ -139,10 +140,11 @@ public class MedicamentsNouveauController implements Initializable {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs invalides");
+            alert.setHeaderText("Veuillez entrer des champs valides");
             alert.setContentText(errorMessage);
-            
+            dialogStage.getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             
             return false;

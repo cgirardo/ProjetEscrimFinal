@@ -162,10 +162,10 @@ public class MedicamentsConsulterController {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(primaryStage);
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Person Selected");
-            alert.setContentText("Please select a person in the table.");
-            
+            alert.setTitle("Aucune selection");
+            alert.setHeaderText("Aucun profil n'a été selectionné");
+            alert.setContentText("Veuillez selectionner une personne dans la table.");
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
         }
     }
@@ -208,10 +208,10 @@ public class MedicamentsConsulterController {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(NavigationController.getMainStage());
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Medoc Selected");
-            alert.setContentText("Please select a medoc in the table.");
-            
+            alert.setTitle("Aucune selection");
+            alert.setHeaderText("Aucun médicament selectionné");
+            alert.setContentText("Veuillez selectionner un médicament dans la table.");
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
         }
     }

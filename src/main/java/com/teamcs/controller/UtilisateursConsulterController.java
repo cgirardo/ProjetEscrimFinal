@@ -190,10 +190,10 @@ public class UtilisateursConsulterController {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(primaryStage);
-            alert.setTitle("Aucune Selection");
-            alert.setHeaderText("Aucun utilisateur sélectionné");
-            alert.setContentText("Veuillez sélectionner un utilisteur dans la table");
-            
+            alert.setTitle("Aucune sélection");
+            alert.setHeaderText("Aucun profil n'est selectionné");
+            alert.setContentText("Veuillez selectionner un profil.");
+            alert.getDialogPane().getStyleClass().add("myDialogs");  
             alert.showAndWait();
         }
     }
@@ -211,7 +211,7 @@ public class UtilisateursConsulterController {
             alert.setTitle("Aucune Selection");
             alert.setHeaderText("Aucun utilisateur sélectionné");
             alert.setContentText("Veuillez sélectionner un utilisteur dans la table");
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
         }
     }

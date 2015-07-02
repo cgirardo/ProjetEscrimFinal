@@ -128,25 +128,25 @@ public class UtilisateursEditerController implements Initializable {
         String errorMessage = "";
 
         if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
-            errorMessage += "No valid first name!\n"; 
+            errorMessage += "Invalide first name!\n"; 
         }
         if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
-            errorMessage += "No valid last name!\n"; 
+            errorMessage += "Invalide last name!\n"; 
         }
         if (streetField.getText() == null || streetField.getText().length() == 0) {
-            errorMessage += "No valid street!\n"; 
+            errorMessage += "Invalide street!\n"; 
         }
 
         if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
-            errorMessage += "No valid postal code!\n"; 
+            errorMessage += "Invalide postal code!\n"; 
         }
 
         if (cityField.getText() == null || cityField.getText().length() == 0) {
-            errorMessage += "No valid city!\n"; 
+            errorMessage += "Invalide city!\n"; 
         }
 
         if (mailField.getText() == null || mailField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "Invalide birthday!\n";
         }
 
         if (errorMessage.length() == 0) {
@@ -155,10 +155,10 @@ public class UtilisateursEditerController implements Initializable {
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs invalides");
+            alert.setHeaderText("Veuillez selectionnez des champs valides");
             alert.setContentText(errorMessage);
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             
             return false;
