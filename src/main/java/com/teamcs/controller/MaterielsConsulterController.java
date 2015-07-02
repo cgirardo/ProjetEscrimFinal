@@ -96,7 +96,7 @@ public class MaterielsConsulterController {
     private boolean showMatNewDialog(Materiel tempMat) {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MaterielsConsulterController.class.getResource("/fxml/view/MaterielsNouveau.fxml"));
+            loader.setLocation(MaterielsConsulterController.class.getResource("/fxml/view/MaterielNouveau.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
             
             Stage dialogStage = new Stage();

@@ -26,7 +26,9 @@ public class AeronefServiceImpl implements AeronefService {
     
     @Override
     public void saveAeronef(Aeronef aeronef) {
+        dao.openCurrentSessionwithTransaction();
         dao.saveAeronef(aeronef);
+        dao.closeCurrentSessionwithTransaction();
     }
 
     @Override
@@ -52,7 +54,9 @@ public class AeronefServiceImpl implements AeronefService {
 
     @Override
     public void updateAeronef(Aeronef aeronef) {
+        dao.openCurrentSessionwithTransaction();
         dao.updateAeronef(aeronef);
+        dao.closeCurrentSessionwithTransaction();
     }
     
 }

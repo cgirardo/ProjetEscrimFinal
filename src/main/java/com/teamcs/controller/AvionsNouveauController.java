@@ -5,6 +5,7 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Aeronef;
 import com.teamcs.service.AeronefService;
 import com.teamcs.service.impl.AeronefServiceImpl;
@@ -65,6 +66,7 @@ public class AvionsNouveauController implements Initializable {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
+            aeronef = new Aeronef();
             aeronef.setLibelleAeronef(libelleField.getText());
             aeronef.setPoidsMax(Integer.parseInt(poidsField.getText()));
             aeronef.setDimensionPorte(dimPorteField.getText());
@@ -105,41 +107,41 @@ public class AvionsNouveauController implements Initializable {
         String errorMessage = "";
 
         if (libelleField.getText() == null || libelleField.getText().length() == 0) {
-            errorMessage += "No valid first name!\n"; 
+            errorMessage += "Invalide libelle!\n"; 
         }
         if (poidsField.getText() == null || poidsField.getText().length() == 0) {
-            errorMessage += "No valid last name!\n"; 
+            errorMessage += "Invalide poids max!\n"; 
         }
         if (dimPorteField.getText() == null || dimPorteField.getText().length() == 0) {
-            errorMessage += "No valid street!\n"; 
+            errorMessage += "invalide dimension porte!\n"; 
         }
 
         if (dimCargoField.getText() == null || dimCargoField.getText().length() == 0) {
-            errorMessage += "No valid postal code!\n"; 
+            errorMessage += "Invalide dimension cargo!\n"; 
         }
 
         if (volField.getText() == null || volField.getText().length() == 0) {
-            errorMessage += "No valid city!\n"; 
+            errorMessage += "Invalide volume!\n"; 
         }
 
         if (longPisteField.getText() == null || longPisteField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "Invalide longueur piste!\n";
         }
         
         if (capPleinField.getText() == null || capPleinField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "Invalide capacité plein!\n";
         }
         if (capVideField.getText() == null || capVideField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "Invalide capacité vide!\n";
         }
         if (vitesseField.getText() == null || vitesseField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "Invalide vitesse max!\n";
         }
         if (longPisteField.getText() == null || longPisteField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "Invalide consommation!\n";
         }
         if (consoField.getText() == null || consoField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
+            errorMessage += "Invalide disponibilite!\n";
         }
         if (dispoField.getText() == null || dispoField.getText().length() == 0 ||
                 (dispoField.getText().toLowerCase().equals("oui") && dispoField.getText().toLowerCase().equals("non"))) {
@@ -155,7 +157,8 @@ public class AvionsNouveauController implements Initializable {
             alert.setTitle("Invalid Fields");
             alert.setHeaderText("Please correct invalid fields");
             alert.setContentText(errorMessage);
-            
+            dialogStage.getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             
             return false;

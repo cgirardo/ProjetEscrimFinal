@@ -12,7 +12,7 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TableView fx:id="avionTable" layoutX="-12.0" layoutY="49.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="aeronefTable" layoutX="-12.0" layoutY="49.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <columns>
                       <TableColumn fx:id="libelleColumn" prefWidth="75.0" text="Libellé" />
                       <TableColumn fx:id="volumeColumn" prefWidth="75.0" text="Volume" />
@@ -70,11 +70,11 @@
                         <Label fx:id="dispoLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="130.0" layoutY="314.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="288.0">
+                  <ButtonBar layoutX="14.0" layoutY="314.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="78.0">
                     <buttons>
-                      <Button mnemonicParsing="false" onAction="#handleNewAeronef" text="New..." />
-                        <Button mnemonicParsing="false" onAction="#handleEditAeronef" text="Edit..." />
-                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteAeronef" prefHeight="33.0" prefWidth="120.0" text="Delete" />
+                      <Button mnemonicParsing="false" onAction="#handleNewAeronef" text="Nouveau" />
+                        <Button mnemonicParsing="false" onAction="#handleEditAeronef" text="Modifier" />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteAeronef" prefHeight="33.0" prefWidth="120.0" text="Supprimer" />
                     </buttons>
                   </ButtonBar>
                </children>
