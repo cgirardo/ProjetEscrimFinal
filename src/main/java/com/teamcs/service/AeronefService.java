@@ -18,7 +18,7 @@ public interface AeronefService {
     
     List<Aeronef> findAllAeronef();
     
-    void deleteAeronefByName(String name);
+    void deleteAeronef(Aeronef aeronef);
     
     Aeronef findByName(String name);
     

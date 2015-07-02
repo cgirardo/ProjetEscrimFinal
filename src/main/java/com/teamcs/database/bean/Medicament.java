@@ -16,13 +16,13 @@ public class Medicament  implements java.io.Serializable {
      private Date dlu;
      private String dci;
      private String formeDosage;
-     private int lot;
+     private String lot;
      private int dotationU7;
 
     public Medicament() {
     }
 
-    public Medicament(Classetherapeutique classetherapeutique, String libelleMedicament, Date dlu, String dci, String formeDosage, int lot, int dotationU7) {
+    public Medicament(Classetherapeutique classetherapeutique, String libelleMedicament, Date dlu, String dci, String formeDosage, String lot, int dotationU7) {
        this.classetherapeutique = classetherapeutique;
        this.libelleMedicament = libelleMedicament;
        this.dlu = dlu;
@@ -74,11 +74,11 @@ public class Medicament  implements java.io.Serializable {
     public void setFormeDosage(String formeDosage) {
         this.formeDosage = formeDosage;
     }
-    public int getLot() {
+    public String getLot() {
         return this.lot;
     }
     
-    public void setLot(int lot) {
+    public void setLot(String lot) {
         this.lot = lot;
     }
     public int getDotationU7() {
