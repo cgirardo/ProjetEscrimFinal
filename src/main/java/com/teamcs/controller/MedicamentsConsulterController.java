@@ -88,7 +88,7 @@ public class MedicamentsConsulterController {
             dluLabel.setText(DateUtil.format(medoc.getDlu()));
             dciLabel.setText(medoc.getDci());
             dosageLabel.setText(medoc.getFormeDosage());
-            lotLabel.setText(Integer.toString(medoc.getLot()));
+            lotLabel.setText(medoc.getLot());
             dotationLabel.setText(Integer.toString(medoc.getDotationU7()));
             medicament = medoc;
         } else {

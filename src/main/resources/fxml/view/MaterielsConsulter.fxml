@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="com.teamcs.controller.MaterielsConsulterController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.MaterielsConsulterController">
     <children>
       <SplitPane dividerPositions="0.4126984126984127" layoutX="153.0" layoutY="70.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -47,9 +47,9 @@
                   </GridPane>
                   <ButtonBar layoutX="-11.0" layoutY="314.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="103.0">
                     <buttons>
-                        <Button mnemonicParsing="false" onAction="#handleNewMat" text="New..." />
-                        <Button mnemonicParsing="false" onAction="#handleEditMat" text="Edit..." />
-                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteMat" prefHeight="33.0" prefWidth="120.0" text="Delete" />
+                        <Button mnemonicParsing="false" onAction="#handleNewMat" text="Nouveau" />
+                        <Button mnemonicParsing="false" onAction="#handleEditMat" text="Modifier" />
+                        <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteMat" prefHeight="33.0" prefWidth="120.0" text="Supprimer" />
                     </buttons>
                   </ButtonBar>
                </children>

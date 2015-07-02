@@ -76,7 +76,7 @@ public class MedicamentsNouveauController implements Initializable {
             medoc.setClassetherapeutique(service.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
             medoc.setDci(dciField.getText());
             medoc.setDlu(DateUtil.parse(dluNameField.getText()));
-            medoc.setLot(Integer.parseInt(lotNameField.getText()));
+            medoc.setLot(lotNameField.getText());
             medoc.setDotationU7(Integer.parseInt(dotationField.getText()));
             medoc.setFormeDosage(dosageField.getText());
 
