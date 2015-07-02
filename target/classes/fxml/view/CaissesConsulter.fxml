@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="363.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.CaissesConsulterController">
+<AnchorPane prefHeight="500.0" prefWidth="927.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.CaissesConsulterController">
     <children>
         <SplitPane dividerPositions="0.4126984126984127" layoutX="153.0" layoutY="70.0" prefHeight="300.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <items>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="500.0" prefWidth="100.0">
                     <children>
                         <TableView fx:id="caisseTable" layoutX="-12.0" layoutY="49.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <columns>
@@ -83,21 +83,21 @@
                                                 <Label fx:id="projectionLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="10" />
                                                 <Label fx:id="designationLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="11" />
                                                 <Label fx:id="secteurLabel" styleClass="label-bright" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="12" />
-      <ButtonBar layoutX="14.0" layoutY="314.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="78.0" GridPane.rowIndex="10">
-                          <buttons>
-                            <Button mnemonicParsing="false" onAction="#handleNewCaisse" text="Nouveau" />
-                              <Button mnemonicParsing="false" onAction="#handleEditCaisse" text="Modifier" />
-                              <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteCaisse" prefHeight="33.0" prefWidth="120.0" text="Supprimer" />
-                          </buttons>
-                        </ButtonBar>
                                             </children>
                                         </GridPane>
+                                        <ButtonBar layoutX="130.0" layoutY="271.0" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="127.0">
+                                            <buttons>
+                                                <Button mnemonicParsing="false" onAction="#handleNewCaisse" text="Nouveau" />
+                                                <Button mnemonicParsing="false" onAction="#handleEditCaisse" text="Modifier" />
+                                                <Button minWidth="66.0" mnemonicParsing="false" onAction="#handleDeleteCaisse" prefHeight="33.0" prefWidth="120.0" text="Supprimer" />
+                                            </buttons>
+                                        </ButtonBar>
                   
                                     </children>
                                 </AnchorPane>
-                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="700.0">
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="700.0">
                                     <children>
-                                        <TableView fx:id="contenuTable" layoutX="-12.0" layoutY="49.0" prefHeight="298.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                        <TableView fx:id="contenuTable" layoutX="-12.0" layoutY="49.0" prefHeight="50.0" prefWidth="175.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                             <columns>
                                                 <TableColumn fx:id="libelleColumn" prefWidth="30.0" text="Matériel" />
                                                 <TableColumn fx:id="quantiteColumn" prefWidth="30.0" text="Quantité" />
