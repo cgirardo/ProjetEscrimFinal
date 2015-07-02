@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.teamcs.controller.CaissesEditerController">
+    <children>
+      <GridPane layoutX="30.0" layoutY="28.0" prefHeight="254.0" prefWidth="404.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="218.0" minWidth="10.0" prefWidth="111.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="316.0" minWidth="10.0" prefWidth="261.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="Numéro" />
+            <Label text="Type" GridPane.rowIndex="1" />
+            <Label text="Latitude" GridPane.rowIndex="2" />
+            <Label text="Longitude" GridPane.rowIndex="3" />
+            <Label text="Affectataire" GridPane.rowIndex="4" />
+            <Label text="Module" GridPane.rowIndex="5" />
+            <Label text="Nominal" GridPane.rowIndex="6" />
+            <Label text="Observation" GridPane.rowIndex="7" />
+            <Label text="Precisions" GridPane.rowIndex="8" />
+            <Label text="Valeur" GridPane.rowIndex="9" />
+            <Label text="Iata" GridPane.rowIndex="10" />
+            <Label text="Projection" GridPane.rowIndex="11" />
+            <Label text="Designation" GridPane.rowIndex="12" />
+            <Label text="Secteur" GridPane.rowIndex="13" />
+
+            <TextField fx:id="numeroField" GridPane.columnIndex="1" />
+            <TextField fx:id="typeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="latitudeField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="longitudeField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="affectField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <TextField fx:id="moduleField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <TextField fx:id="nominalField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <TextField fx:id="observationField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <TextField fx:id="precisionsField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+            <TextField fx:id="valeurField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+            <TextField fx:id="iataField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+            <TextField fx:id="projectionField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+            <TextField fx:id="designationField" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+            <TextField fx:id="secteurField" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+         </children>
+      </GridPane>
+      <ButtonBar layoutX="176.0" layoutY="233.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+        <buttons>
+            <Button defaultButton="true" mnemonicParsing="false" onAction="#handleOk" text="OK" />
+          <Button mnemonicParsing="false" onAction="#handleCancel" prefWidth="120.0" text="Cancel" />
+        </buttons>
+      </ButtonBar>
+   </children>
+</AnchorPane>

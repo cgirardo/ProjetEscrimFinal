@@ -10,7 +10,6 @@ import com.teamcs.database.DAO.AeronefDAO;
 import com.teamcs.database.bean.Aeronef;
 import java.util.List;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -31,10 +30,8 @@ public class AeronefDAOImpl extends AbstractDAO implements AeronefDAO {
     }
 
     @Override
-    public void deleteAeronefByName(String name) {
-        Query query = getCurrentSession().createSQLQuery("delete from Aeronef where LibelleAeronef = :name");
-        query.setString("name", name);
-        query.executeUpdate();
+    public void deleteAeronef(Aeronef aeronef) {
+        getCurrentSession().delete(aeronef);
     }
 
     @Override
@@ -47,6 +44,5 @@ public class AeronefDAOImpl extends AbstractDAO implements AeronefDAO {
     @Override
     public void updateAeronef(Aeronef aeronef) {
         getCurrentSession().update(aeronef);
-    }
-    
+    }  
 }

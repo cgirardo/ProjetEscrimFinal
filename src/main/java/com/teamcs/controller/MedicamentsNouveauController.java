@@ -5,9 +5,13 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.controller.common.NavigationController;
 import com.teamcs.database.bean.Classetherapeutique;
+import com.teamcs.database.bean.Contenu;
 import com.teamcs.database.bean.Medicament;
+import com.teamcs.service.ContenuService;
 import com.teamcs.service.MedicamentService;
+import com.teamcs.service.impl.ContenuServiceImpl;
 import com.teamcs.service.impl.MedicamentServiceImpl;
 import com.teamcs.util.DateUtil;
 import java.net.URL;
@@ -40,10 +44,12 @@ public class MedicamentsNouveauController implements Initializable {
     @FXML
     private TextField dosageField;
     
-    MedicamentService service = new MedicamentServiceImpl();
+    MedicamentService serviceMedicament = new MedicamentServiceImpl();
+    ContenuService serviceContenu = new ContenuServiceImpl();
 
     private Stage dialogStage;
     private Medicament medoc;
+    private Contenu contenu;
     private boolean okClicked = false;
     
     /**
@@ -72,17 +78,19 @@ public class MedicamentsNouveauController implements Initializable {
         if (isInputValid()) {
             medoc = new Medicament();
             medoc.setLibelleMedicament(libelleField.getText());
-            medoc.setClassetherapeutique(service.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
+            medoc.setClassetherapeutique(serviceMedicament.findOneClasse(classeComboBox.getSelectionModel().getSelectedItem()));
             medoc.setDci(dciField.getText());
             medoc.setDlu(DateUtil.parse(dluNameField.getText()));
-            if(lotNameField.getText() != null || lotNameField.getText().length() > 0)
-                medoc.setLot(lotNameField.getText());
-//            if(dotationField.getText() != null || dotationField.getText().equals("") || dotationField.getText().length() > 0 || !dotationField.getText().isEmpty())
+            medoc.setLot(lotNameField.getText());
             medoc.setDotationU7(Integer.parseInt(dotationField.getText()));
             medoc.setFormeDosage(dosageField.getText());
 
+            contenu = new Contenu();
+            contenu.setLibelleContenu(libelleField.getText());
+            
             okClicked = true;
-            service.saveMedicament(medoc);
+            serviceMedicament.saveMedicament(medoc);
+            serviceContenu.saveContenu(contenu);
             
             dialogStage.close();
         }
@@ -105,17 +113,21 @@ public class MedicamentsNouveauController implements Initializable {
         String errorMessage = "";
 
         if (libelleField.getText() == null || libelleField.getText().length() == 0) {
-            errorMessage += "No valid libelle!\n"; 
+            errorMessage += "Invalide libelle!\n"; 
         }
         if (dciField.getText() == null || dciField.getText().length() == 0) {
-            errorMessage += "No valid dci!\n"; 
+            errorMessage += "Invalide DCI!\n"; 
         }
         if (dluNameField.getText() == null || dluNameField.getText().length() == 0) {
-            errorMessage += "No valid dlu!\n"; 
+            errorMessage += "Invalide DLU!\n"; 
+        }
+
+        if (dotationField.getText() == null || dotationField.getText().length() == 0) {
+            errorMessage += "Invalide dotation!\n"; 
         }
 
         if (dosageField.getText() == null || dosageField.getText().length() == 0) {
-            errorMessage += "No valid dosage!\n";
+            errorMessage += "Invalide dosage!\n";
         }
 
         if (errorMessage.length() == 0) {
@@ -124,10 +136,11 @@ public class MedicamentsNouveauController implements Initializable {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs invalides");
+            alert.setHeaderText("Veuillez entrer des champs valides");
             alert.setContentText(errorMessage);
-            
+            dialogStage.getScene().getStylesheets().add(getClass().getResource(NavigationController.STYLE_LOGISTICIEN).toExternalForm());
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             
             return false;
@@ -139,7 +152,7 @@ public class MedicamentsNouveauController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        for(Classetherapeutique classe : service.findAllClasses()) {
+        for(Classetherapeutique classe : serviceMedicament.findAllClasses()) {
             classeComboBox.getItems().add(classe.getLibelleClasseTherapeutique());
         }
     }

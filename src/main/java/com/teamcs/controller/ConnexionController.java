@@ -42,7 +42,6 @@ public class ConnexionController implements Initializable {
     }
     
     private void selectView(String statut) throws IOException {
-
         switch(statut) {
             case "Logisticien":
                 NavigationController.loadMenu(NavigationController.MENU_LOG);

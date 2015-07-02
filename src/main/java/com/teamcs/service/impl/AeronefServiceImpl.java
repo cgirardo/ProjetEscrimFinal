@@ -39,8 +39,10 @@ public class AeronefServiceImpl implements AeronefService {
     }
 
     @Override
-    public void deleteAeronefByName(String name) {
-        dao.deleteAeronefByName(name);
+    public void deleteAeronef(Aeronef aeronef) {
+        dao.openCurrentSessionwithTransaction();
+        dao.deleteAeronef(aeronef);
+        dao.closeCurrentSessionwithTransaction();
     }
 
     @Override

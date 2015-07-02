@@ -128,21 +128,25 @@ public class MedicamentsEditerController implements Initializable {
         String errorMessage = "";
 
         if (libelleField.getText() == null || libelleField.getText().length() == 0) {
-            errorMessage += "No valid libelle!\n"; 
+            errorMessage += "Invalide libelle!\n"; 
         }
         if (dciField.getText() == null || dciField.getText().length() == 0) {
-            errorMessage += "No valid dci!\n"; 
+            errorMessage += "Invalide dci!\n"; 
         }
         if (dluNameField.getText() == null || dluNameField.getText().length() == 0) {
-            errorMessage += "No valid dlu!\n"; 
+            errorMessage += "Invalide dlu!\n"; 
         }
-        
+
+        if (lotNameField.getText() == null || lotNameField.getText().length() == 0) {
+            errorMessage += "Invalide lot!\n"; 
+        }
+
         if (dotationField.getText() == null || dotationField.getText().length() == 0) {
-            errorMessage += "No valid dotation!\n"; 
+            errorMessage += "Invalide dotation!\n"; 
         }
 
         if (dosageField.getText() == null || dosageField.getText().length() == 0) {
-            errorMessage += "No valid dosage!\n";
+            errorMessage += "Invalide dosage!\n";
         }
 
         if (errorMessage.length() == 0) {
@@ -151,10 +155,10 @@ public class MedicamentsEditerController implements Initializable {
             // Show the error message.
             Alert alert = new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Champs invalides");
+            alert.setHeaderText("Veuillez corriger les champs invalides");
             alert.setContentText(errorMessage);
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
             
             return false;

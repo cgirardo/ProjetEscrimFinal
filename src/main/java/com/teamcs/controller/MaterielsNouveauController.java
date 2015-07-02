@@ -5,8 +5,11 @@
  */
 package com.teamcs.controller;
 
+import com.teamcs.database.bean.Contenu;
 import com.teamcs.database.bean.Materiel;
+import com.teamcs.service.ContenuService;
 import com.teamcs.service.MaterielService;
+import com.teamcs.service.impl.ContenuServiceImpl;
 import com.teamcs.service.impl.MaterielServiceImpl;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,10 +29,12 @@ public class MaterielsNouveauController implements Initializable {
     @FXML
     private TextField libelleField;
     
-    MaterielService service = new MaterielServiceImpl();
+    MaterielService serviceMateriel = new MaterielServiceImpl();
+    ContenuService serviceContenu = new ContenuServiceImpl();
 
     private Stage dialogStage;
     private Materiel materiel;
+    private Contenu contenu;
     private boolean okClicked = false;
     
     /**
@@ -58,9 +63,12 @@ public class MaterielsNouveauController implements Initializable {
         if (isInputValid()) {
             materiel = new Materiel();
             materiel.setLibelleMateriel(libelleField.getText());
+            contenu = new Contenu();
+            contenu.setLibelleContenu(libelleField.getText());
 
             okClicked = true;
-            service.saveMateriel(materiel);
+            serviceMateriel.saveMateriel(materiel);
+            serviceContenu.saveContenu(contenu);
             
             dialogStage.close();
         }
@@ -83,7 +91,7 @@ public class MaterielsNouveauController implements Initializable {
         String errorMessage = "";
 
         if (libelleField.getText() == null || libelleField.getText().length() == 0) {
-            errorMessage += "No valid libelle!\n"; 
+            errorMessage += "Invalide libelle!\n"; 
         }
 
         if (errorMessage.length() == 0) {
@@ -95,7 +103,7 @@ public class MaterielsNouveauController implements Initializable {
             alert.setTitle("Invalid Fields");
             alert.setHeaderText("Please correct invalid fields");
             alert.setContentText(errorMessage);
-            
+            alert.getDialogPane().getStyleClass().add("myDialogs");   
             alert.showAndWait();
             
             return false;

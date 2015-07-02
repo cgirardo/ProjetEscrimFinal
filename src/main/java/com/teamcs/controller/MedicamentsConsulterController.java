@@ -6,14 +6,17 @@
 package com.teamcs.controller;
 
 import com.teamcs.controller.common.NavigationController;
-import com.teamcs.database.bean.Classetherapeutique;
+import com.teamcs.database.bean.Caisse;
 import com.teamcs.database.bean.Medicament;
+import com.teamcs.service.CaisseService;
+import com.teamcs.service.ContenuService;
 import com.teamcs.service.MedicamentService;
+import com.teamcs.service.impl.CaisseServiceImpl;
+import com.teamcs.service.impl.ContenuServiceImpl;
 import com.teamcs.service.impl.MedicamentServiceImpl;
 import com.teamcs.util.DateUtil;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -46,14 +49,16 @@ public class MedicamentsConsulterController {
     @FXML Label dosageLabel;
     @FXML Label lotLabel;
     @FXML Label dotationLabel;
-    @FXML Label dluAlert;
+    @FXML Label caisseLabel;
     
     @FXML private TableView<Medicament> medocTable;
     @FXML private TableColumn<Medicament, String> libelleColumn;
     @FXML private TableColumn<Medicament, String> classeColumn;
     
     private Medicament medicament;
-    private MedicamentService service;
+    private MedicamentService serviceMedicament;
+    private ContenuService serviceContenu;
+    private CaisseService serviceCaisse;
     private ObservableList<Medicament> medocData;
     Stage primaryStage;
     
@@ -61,7 +66,9 @@ public class MedicamentsConsulterController {
     
     @FXML
     public void initialize() {
-        service = new MedicamentServiceImpl();
+        serviceMedicament = new MedicamentServiceImpl();
+        serviceContenu = new ContenuServiceImpl();
+        serviceCaisse = new CaisseServiceImpl();
         getDataFromDatabase();
         medocTable.setItems(medocData);
         libelleColumn.setCellValueFactory(new PropertyValueFactory<Medicament, String>("libelleMedicament"));
@@ -82,7 +89,7 @@ public class MedicamentsConsulterController {
     
     public void getDataFromDatabase() {
         medocData = FXCollections.observableArrayList();
-        medocData.addAll(service.findAllMedicament());
+        medocData.addAll(serviceMedicament.findAllMedicament());
     }
     
     private void showMedocDetails(Medicament medoc) {
@@ -91,8 +98,6 @@ public class MedicamentsConsulterController {
             classeLabel.setText(medoc.getClassetherapeutique().getLibelleClasseTherapeutique());
             dluLabel.setText(DateUtil.format(medoc.getDlu()));
             Date datetoday = new Date();
-            System.out.println(dluAlert);
-            System.out.println(DateUtil.format(datetoday).compareTo(DateUtil.format(medoc.getDlu())));
             dluLabel.getStyleClass().remove("color-red");
             dluAlert.getStyleClass().remove("color-red");
             dluAlert.setVisible(false);
@@ -104,6 +109,7 @@ public class MedicamentsConsulterController {
             dosageLabel.setText(medoc.getFormeDosage());
             lotLabel.setText(medoc.getLot());
             dotationLabel.setText(Integer.toString(medoc.getDotationU7()));
+//            caisseLabel.setText(Integer.toString(medoc.))
             medicament = medoc;
         } else {
             libelleLabel.setText("");
@@ -113,6 +119,7 @@ public class MedicamentsConsulterController {
             dosageLabel.setText("");
             lotLabel.setText("");
             dotationLabel.setText("");
+            caisseLabel.setText("");
         }
     }
     
@@ -163,10 +170,10 @@ public class MedicamentsConsulterController {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(primaryStage);
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Person Selected");
-            alert.setContentText("Please select a person in the table.");
-            
+            alert.setTitle("Aucune selection");
+            alert.setHeaderText("Aucun profil n'a été selectionné");
+            alert.setContentText("Veuillez selectionner une personne dans la table.");
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
         }
     }
@@ -203,15 +210,16 @@ public class MedicamentsConsulterController {
         Medicament selectedMedoc = medocTable.getSelectionModel().getSelectedItem();
         if (selectedIndex >= 0) {
             medocTable.getItems().remove(selectedIndex);
-            service.deleteMedicament(selectedMedoc);
+            serviceMedicament.deleteMedicament(selectedMedoc);
+//            serviceContenu.deleteContenu(selectedMedoc.getIdMedicament());
         } else {
             // Nothing selected.
             Alert alert = new Alert(AlertType.WARNING);
             alert.initOwner(NavigationController.getMainStage());
-            alert.setTitle("No Selection");
-            alert.setHeaderText("No Medoc Selected");
-            alert.setContentText("Please select a medoc in the table.");
-            
+            alert.setTitle("Aucune selection");
+            alert.setHeaderText("Aucun médicament selectionné");
+            alert.setContentText("Veuillez selectionner un médicament dans la table.");
+            alert.getDialogPane().getStyleClass().add("myDialogs");
             alert.showAndWait();
         }
     }

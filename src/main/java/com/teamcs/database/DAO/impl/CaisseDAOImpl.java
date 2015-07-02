@@ -19,6 +19,10 @@ import org.hibernate.criterion.Restrictions;
  */
 public class CaisseDAOImpl extends AbstractDAO implements CaisseDAO {
 
+    public CaisseDAOImpl() {
+        
+    }
+    
     @Override
     public void saveCaisse(Caisse caisse) {
         getCurrentSession().persist(caisse);
@@ -31,10 +35,8 @@ public class CaisseDAOImpl extends AbstractDAO implements CaisseDAO {
     }
 
     @Override
-    public void deleteCaisseById(int id) {
-        Query query = getCurrentSession().createSQLQuery("delete from Caisse where IdCaisse = :id");
-        query.setInteger("id", id);
-        query.executeUpdate();
+    public void deleteCaisse(Caisse caisse) {
+        getCurrentSession().delete(caisse);
     }
 
     @Override
